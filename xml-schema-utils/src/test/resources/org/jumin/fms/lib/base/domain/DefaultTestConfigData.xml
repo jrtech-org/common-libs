@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<metadata xmlns="http://www.jrtech.org/fms/DefaultTestConfigData" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.jrtech.org/fms/DefaultTestConfigData DefaultTestConfigData.xsd">
+	<general>
+		<activation-timestamp>2009-07-30T10:10:46.760+02:00</activation-timestamp>
+		<allowable-start-time>08:00:00+02:00</allowable-start-time>
+		<allowable-end-time>17:00:00+02:00</allowable-end-time>
+		<booking-date>2009-07-30+02:00</booking-date>
+		<complexity-requirement />
+		<concurrent-user-session-default>5</concurrent-user-session-default>
+		<concurrent-user-session-default-max>5</concurrent-user-session-default-max>
+		<days-before-notice>-1</days-before-notice>
+		<history-requirement>-1</history-requirement>
+		<id-means>PWD</id-means>
+		<id-means-default>PWD</id-means-default>
+		<inactivity-period-default>-1</inactivity-period-default>
+		<inactivity-period-max>-1</inactivity-period-max>
+		<name />
+		<password-lifetime-default>-1</password-lifetime-default>
+		<password-lifetime-max>-1</password-lifetime-max>
+		<password-lifetime-min>-1</password-lifetime-min>
+		<password-minimum-length>4</password-minimum-length>
+		<successive-faulty-login-default>-1</successive-faulty-login-default>
+		<successive-faulty-login-max>-1</successive-faulty-login-max>
+		<target-status />
+	</general>
+	<release>
+		<organization-release-principle>2</organization-release-principle>
+		<profile-release-principle>2</profile-release-principle>
+		<role-release-principle>2</role-release-principle>
+		<user-release-principle>2</user-release-principle>
+	</release>
+</metadata>

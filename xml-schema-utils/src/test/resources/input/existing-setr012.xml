@@ -1,0 +1,116 @@
+<?xml version = "1.0"?>
+<SwInt:HandleRequest xmlns:Sw="urn:swift:snl:ns.Sw" xmlns:SwInt="urn:swift:snl:ns.SwInt" xmlns:SwSec="urn:swift:snl:ns.SwSec">
+  <SwInt:RequestHandle>
+    <SwInt:RequestDescriptor>
+      <SwInt:SwiftRequestRef>SNL50702-2010-09-21T18:48:16.319570.010558Z</SwInt:SwiftRequestRef>
+      <SwInt:SwiftRef>swi00004-2010-09-21T18:46:04.6287.12336020Z</SwInt:SwiftRef>
+      <SwInt:NonRep>
+        <SwInt:NRType>SVCMAND</SwInt:NRType>
+      </SwInt:NonRep>
+      <SwInt:ValidationDescriptor>
+        <SwInt:ValResult>Success</SwInt:ValResult>
+      </SwInt:ValidationDescriptor>
+      <Sw:SnFOutputInfo>
+        <Sw:SnFSessionId>ombssess_funds:p:000033</Sw:SnFSessionId>
+        <Sw:SnFOutputSeq>20</Sw:SnFOutputSeq>
+        <Sw:DeliveryTime>2010-09-21T18:46:04Z</Sw:DeliveryTime>
+        <Sw:SnFInputTime>0102:2010-09-21T18:46:04</Sw:SnFInputTime>
+      </Sw:SnFOutputInfo>   
+      <SwInt:MRRResult>
+        <SwInt:SNLId>snl10662</SwInt:SNLId>
+        <SwInt:SNLEP>isa1i_ombssess</SwInt:SNLEP>
+      </SwInt:MRRResult>
+    </SwInt:RequestDescriptor>
+    <Sw:RequestE2EControl>
+      <Sw:MsgId>75f08a76-1dd2-11b2-b705-a0a63161e8d2</Sw:MsgId>
+    </Sw:RequestE2EControl>
+    <SwInt:RequestHeader>
+      <SwInt:Requestor>ou=filb2b,o=fidigb22,o=swift</SwInt:Requestor>
+      <SwInt:Responder>o=ombssess,o=swift</SwInt:Responder>
+      <SwInt:Service>swift.if.ia</SwInt:Service>
+      <SwInt:RequestType>setr.012.001.03</SwInt:RequestType>
+      <SwInt:Priority>Normal</SwInt:Priority>
+      <SwInt:RequestRef>GLSA B00002441-201009211945315</SwInt:RequestRef>
+    </SwInt:RequestHeader>
+    <SwInt:RequestPayload>
+      <AppHdr xmlns="urn:swift:xsd:$ahV10">
+        <MsgRef>GLSA B00002441-201009211945315</MsgRef>
+        <CrDate>2010-09-21T19:45:31+00:00</CrDate>
+      </AppHdr>
+      <Document xmlns="urn:swift:xsd:setr.012.001.03">
+        <SbcptOrdrConfV03>
+          <MsgId>
+            <Id>GLSA B00002441-20100921194531532</Id>
+            <CreDtTm>2010-09-21T19:45:31+00:00</CreDtTm>
+          </MsgId>
+          <RltdRef>
+            <Ref>100126</Ref>
+          </RltdRef>
+          <MltplExctnDtls>
+            <InvstmtAcctDtls>
+              <AcctId>
+                <Prtry>
+                  <Id>OMXA100013</Id>
+                </Prtry>
+              </AcctId>
+            </InvstmtAcctDtls>
+            <IndvExctnDtls>
+              <OrdrRef>100126</OrdrRef>
+              <DealRef>GLSA B00002441</DealRef>
+              <FinInstrmDtls>
+                <Id>
+                  <ISIN>LU0267387255</ISIN>
+                </Id>
+              </FinInstrmDtls>
+              <UnitsNb>
+                <Unit>1671.17</Unit>
+              </UnitsNb>
+              <NetAmt Ccy="EUR">16415.87</NetAmt>
+              <GrssAmt Ccy="EUR">16415.87</GrssAmt>
+              <TradDtTm>
+                <Dt>2010-09-21</Dt>
+              </TradDtTm>
+              <DealgPricDtls>
+                <Tp>NAVL</Tp>
+                <Val>
+                  <Amt Ccy="EUR">9.823000</Amt>
+                </Val>
+              </DealgPricDtls>
+              <SttlmAmt Ccy="EUR">16415.87</SttlmAmt>
+              <CshSttlmDt>2010-09-24</CshSttlmDt>
+              <PrtlyExctdInd>false</PrtlyExctdInd>
+              <CumDvddInd>false</CumDvddInd>
+              <FXDtls>
+                <ToAmt Ccy="EUR">16415.87</ToAmt>
+                <UnitCcy>EUR</UnitCcy>
+                <QtdCcy>EUR</QtdCcy>
+                <XchgRate>1.000000</XchgRate>
+              </FXDtls>
+              <PhysDlvryInd>false</PhysDlvryInd>
+              <ReqdSttlmCcy>EUR</ReqdSttlmCcy>
+              <ReqdNAVCcy>EUR</ReqdNAVCcy>
+            </IndvExctnDtls>
+          </MltplExctnDtls>
+          <RltdPtyDtls>
+            <Id>
+              <BICOrBEI>FIDIGB22</BICOrBEI>
+            </Id>
+          </RltdPtyDtls>
+        </SbcptOrdrConfV03>
+      </Document>
+    </SwInt:RequestPayload>
+    <SwSec:Crypto>
+      <SwSec:CryptoInternal>
+        <SwSec:CipherKey>UEVNRkBQcm9jLVR5cGU6IDQsTUlDLU9OTFkNCkNvbnRlbnQtRG9tYWluOiBSRkM4MjINCkVudHJ1c3RGaWxlLVZlcnNpb246IDIuMA0KT3JpZ2luYXRvci1ETjogY249eG1sdXNlcjEsb3U9ZmlsYjJiLG89ZmlkaWdiMjIsbz1zd2lmdA0KT3JpZy1TTjogMTI1NjQ4MzM0MQ0KTUlDLUluZm86IFNIQTI1NiwgUlNBLA0KIFZNclRvMnZKTUJ4Rk5WUTNLSkFXV1ZhY2JhY2VEWHNqK0p4L1dndERzdGdvYVBtUmsyRUgxM0cxaDFUM0RUTnANCiBOR3IwS1A3SDFFbVZuVmE4SmVrWkVPQllabnpRcXJESmZzaHhlN3JUWnRFNVFEL0J3dlVrOTFNcUlaYkRBZWFaDQogTk9GdFQ2WWE5WVVoaDhjVFVNSnRHZXVoM1lTS2VxdEw0UUZucUZOendmS2c5QzVuRENsVndidGloTWtDQ0dNMg0KIEt0ZWpVbERpajdQNWVGYk1WOEE5aitvbTNyc3ZHclF5VmNyK2hVTVFyMmRUY3VIREtjRGhTREFvWmxvY0dmS24NCiA5UWQxRWJ2UU96ci9PMW1lRTJrQXZPNmdRSkJFUk04WmZueVNWUDF6WmpaUW0rR0xUbXN5QkMzWm5INCtEZ3VuDQogY0xVSmNvbkxEWmpqZ3pnWFJwdmQrdz09DQo=</SwSec:CipherKey>
+        <SwSec:CryptoProtocol>4.0:3.0</SwSec:CryptoProtocol>
+      </SwSec:CryptoInternal>
+      <SwSec:CryptoDescriptor>
+        <SwSec:MemberRef>RequestPayload</SwSec:MemberRef>
+        <SwSec:MemberRef>RequestHeader</SwSec:MemberRef>
+        <SwSec:MemberRef>RequestDescriptor.SwiftRequestRef</SwSec:MemberRef>
+        <SwSec:SignDN>cn=xmluser1,ou=filb2b,o=fidigb22,o=swift</SwSec:SignDN>
+        <SwSec:CertPolicyId>1.3.21.6.2</SwSec:CertPolicyId>
+      </SwSec:CryptoDescriptor>
+    </SwSec:Crypto>
+  </SwInt:RequestHandle>
+</SwInt:HandleRequest>

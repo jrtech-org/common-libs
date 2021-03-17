@@ -1,0 +1,59 @@
+<Fin xmlns="urn:ch:bbp:fms:meta:messaging:swift:fin:msg">
+    <B1>
+        <ApplicationId>F</ApplicationId>
+        <ServiceId>01</ServiceId>
+        <Lt>PTSACHBIXXXX</Lt>
+        <SessionNo>9999</SessionNo>
+        <SequenceNo>999999</SequenceNo>
+    </B1>
+    <B2>
+        <IncomingId>I</IncomingId>
+        <Mt>102</Mt>
+        <Destination>PTSACHBIXXXX</Destination>
+        <MsgPriority>N</MsgPriority>
+    </B2>
+    <B4>
+        <doc:Document xmlns:doc="urn:ch:bbp:fms:meta:messaging:fin:mt102">
+            <doc:Mt102>
+                <doc:F20>
+                    <doc:Reference>DEMO120824000995</doc:Reference>
+                </doc:F20>
+                <doc:F50K>
+                    <doc:Account>1234567</doc:Account>
+                    <doc:NameAndAddress>Muster FirmaSonnenhalde1234 Irgendwo</doc:NameAndAddress>
+                </doc:F50K>
+                <doc:F52A>
+                    <doc:Bic>PTSACHBX</doc:Bic>
+                </doc:F52A>
+                <doc:F71A>
+                    <doc:Code>SHA</doc:Code>
+                </doc:F71A>
+                <doc:F21>
+                    <doc:Reference>Reference</doc:Reference>
+                </doc:F21>
+                <doc:F32B>
+                    <doc:Currency>CHF</doc:Currency>
+                    <doc:Amount>4563466,</doc:Amount>
+                </doc:F32B>
+                <doc:F57A>
+                    <doc:Bic>PTSACHBY</doc:Bic>
+                </doc:F57A>
+                <doc:F59>
+                    <doc:Account>ttwertwertt</doc:Account>
+                    <doc:NameAndAddress>LieferantRampe 29876 VonHier</doc:NameAndAddress>
+                </doc:F59>
+                <doc:F70>
+                    <doc:RemittanceInformation>Verkaeufer GMBH6666</doc:RemittanceInformation>
+                </doc:F70>
+                <doc:F32A>
+                    <doc:Date>120824</doc:Date>
+                    <doc:Currency>CHF</doc:Currency>
+                    <doc:Amount>35623456,</doc:Amount>
+                </doc:F32A>
+                <doc:F72>
+                    <doc:NarrativeStructuredFormat>Zusatzinfo</doc:NarrativeStructuredFormat>
+                </doc:F72>
+            </doc:Mt102>
+        </doc:Document>
+    </B4>
+</Fin>

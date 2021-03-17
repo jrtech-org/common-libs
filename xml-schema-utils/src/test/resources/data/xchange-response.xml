@@ -1,0 +1,13 @@
+<?xml version='1.0'?><SwInt:ExchangeResponse xmlns:SwInt="urn:swift:snl:ns.SwInt" xmlns:Sw="urn:swift:snl:ns.Sw" xmlns:SwSec="urn:swift:snl:ns.SwSec"><SwInt:ResponseHandle><SwInt:RequestDescriptor><SwInt:SwiftRequestRef>SNL01853-2015-01-05T16:28:38.8875.000153Z</SwInt:SwiftRequestRef><SwInt:SwiftRef>swi00002-2015-01-05T16:23:19.21404.141410Z</SwInt:SwiftRef><SwInt:NonRep><SwInt:NRType>SVCMAND</SwInt:NRType></SwInt:NonRep><SwInt:ValidationDescriptor><SwInt:ValResult>Success</SwInt:ValResult></SwInt:ValidationDescriptor><Sw:SnFInputInfo><Sw:SnFInputTime>0156:2015-01-05T16:23:20</Sw:SnFInputTime><Sw:SnFInputSeqRange><Sw:FirstSnFInputSeq>1678</Sw:FirstSnFInputSeq><Sw:LastSnFInputSeq>1678</Sw:LastSnFInputSeq></Sw:SnFInputSeqRange><Sw:SnFLastReplicationTime>0156:2015-01-05T16:23:19</Sw:SnFLastReplicationTime></Sw:SnFInputInfo><SwSec:SignatureList><SwSec:Signature><SwSec:SignedInfo><Sw:Reference><Sw:DigestValue>SwE0EvcJWLxEA3ULqBpKhRCKtq8sk/Rncwd40C4OSDY=</Sw:DigestValue></Sw:Reference></SwSec:SignedInfo><SwSec:SignatureValue>PEMF@Proc-Type: 4,MIC-ONLY
+Content-Domain: RFC822
+EntrustFile-Version: 2.0
+Originator-DN: cn=ptsachbgv7-t,o=ptsachbg,o=swift
+Orig-SN: 1402721153
+MIC-Info: SHA256, RSA,
+ DyYT/j6PjgLBMD/5nUoQWFPYK82pa4GyohPj/csQCSrH9IZLjGH1TvtnR1+pubKC
+ OQRQ4tWYMv5yCO0Qm6G7AL8P+7Vz4KmmsEgbPcqohMkKq+bYuZ6YT7o0JtB+duCY
+ Ec7w3AGSF5b0P1dvuSEuldWxfa9Z0AkqYbKigJUhqAoBDmififBzGSXDX0CU0qNm
+ u0sHLXpK4+FUOer0MKAfAUiJnDFlEWtj6+MKjJenIUrDQyKThMNJS5WpwNfm555c
+ ygarvIeyVPqtk4QMu1rX386oZhtORjH9Evff6lQr30Xa4boBq7ixja7UCDFY2nRn
+ UPxUt/Vqt2daccRkhJlVBA==
+</SwSec:SignatureValue><SwSec:KeyInfo><SwSec:SignDN>cn=ptsachbgv7-t,o=ptsachbg,o=swift</SwSec:SignDN><SwSec:CertPolicyId>1.3.21.6.2</SwSec:CertPolicyId></SwSec:KeyInfo><SwSec:Manifest><Sw:Reference><Sw:DigestRef>Revocation</Sw:DigestRef><Sw:DigestValue>eFScOSEQZNVg8BJPrxw0k0ZlPQu0tIJhIRCCDYmVmQQ=</Sw:DigestValue></Sw:Reference><Sw:Reference><Sw:DigestRef>Sw.E2S</Sw:DigestRef><Sw:DigestValue>YNnPrRti4xbIDqnII+Qc56knEPmJIjEJBJfUZnsxKnw=</Sw:DigestValue></Sw:Reference><Sw:Reference><Sw:DigestRef>Sw.NRS</Sw:DigestRef><Sw:DigestValue>TFZu4Koe1U5bcvcM3I7FH+T6wzAI5X/xJSFfEVo3rjg=</Sw:DigestValue></Sw:Reference></SwSec:Manifest></SwSec:Signature></SwSec:SignatureList></SwInt:RequestDescriptor><SwInt:ResponseDescriptor><SwInt:SwiftResponseRef>snp20006-2015-01-05T16:23: 20.5967.063066Z</SwInt:SwiftResponseRef></SwInt:ResponseDescriptor><SwInt:ResponseHeader><SwInt:Responder>cn=messaging,o=swift,o=swift</SwInt:Responder></SwInt:ResponseHeader><SwInt:ResponsePayload type="swift.emptyresponse" /></SwInt:ResponseHandle></SwInt:ExchangeResponse>

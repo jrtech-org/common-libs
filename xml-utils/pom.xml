@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<groupId>org.jrtech.common</groupId>
+	<artifactId>xml-utils</artifactId>
+	<packaging>jar</packaging>
+
+	<version>2.0.0-SNAPSHOT</version>
+
+	<description>Collection of Java XML processing utility classes</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<commons-io.version>2.5</commons-io.version>
+		<commons-lang3.version>3.6</commons-lang3.version>
+		<xalan.version>2.7.2</xalan.version>
+
+		<junit.version>4.13.2</junit.version>
+        <log4j.version>1.2.17</log4j.version>
+        <slf4j.version>1.7.30</slf4j.version>
+	</properties>
+
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+	
+	<developers>
+		<developer>
+			<id>juminrubin</id>
+			<name>Jumin Rubin</name>
+			<email>juminrubin@gmail.com</email>
+		</developer>
+	</developers>
+
+	<dependencies>
+        <!-- Libraries for Testing purpose -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Default 3rd Party Libraries for Logging -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+		<dependency>
+			<groupId>org.jrtech.common</groupId>
+			<artifactId>lang-utils</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- 3rd Party Libraries -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+		<!-- Optional when other library uses Xalan -->
+		<dependency>
+			<groupId>xalan</groupId>
+			<artifactId>xalan</artifactId>
+			<version>${xalan.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+</project>

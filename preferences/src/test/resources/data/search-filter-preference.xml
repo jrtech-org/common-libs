@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+    <preference type="SearchFilterPreference" name="Editable Messages Filter"
+        description="Filtering messages in the status Draft, Rejected, and Not-Acknowledge."
+        visible="true" entity="Message" module="C&amp;C" scope="Global">
+        <searchCriteria xmlns="http://www.jrtech.org/common/config/criteria">
+            <andExpression>
+                <listExpression field="STATUS">
+                    <item value="DRAFT" />
+                    <item value="REJECTED" />
+                    <item value="NAK" />
+                </listExpression>
+            </andExpression>
+        </searchCriteria>
+		<table xmlns="http://www.jrtech.org/common/config/table">
+			<object>org.jrtech.common.preferences.table.Message</object>
+			<columns>
+				<column visible="true" label="Msg./Req. Type" name="type/id" width="150px" />
+				<column visible="true" label="Process Status" name="extendedProperties@status" width="140px" retrievingMethod="RetrieveMap" />
+				<column visible="true" label="Securities Id" name="isin" width="140px" retrievingMethod="getExtendedPropertyValue" />
+				<column visible="true" label="Quantity" name="unitNumber" width="120px" align="right" retrievingMethod="getExtendedPropertyValue" translator="org.jrtech.common.utils.translator.NumberStringTranslator" />
+				<column visible="true" label="Currency" name="currency" width="100px" retrievingMethod="getExtendedPropertyValue" />
+				<column visible="true" label="Amount" name="amount" width="160px" align="right" retrievingMethod="getExtendedPropertyValue" translator="org.jrtech.zkx.zkxutils.translator.DecimalAlignedAmountWidgetTranslator" />
+				<column visible="true" label="Process Status Date/Time" name="modificationTimestamp" width="220px" translator="org.jrtech.common.utils.translator.DatetimeStringTranslator" />
+				<column visible="true" label="Own Side" name="ownpartyCode" width="180px" />
+				<column visible="true" label="Other Side" name="counterpartyCode" width="180px" />
+				<column visible="true" label="Order Reference" name="transactionReference" width="200px" />
+				<column visible="true" label="Account #" name="accountNo" width="140px" retrievingMethod="getExtendedPropertyValue" />
+				<column visible="true" label="Rate" name="rate" width="140px" align="right" retrievingMethod="getExtendedPropertyValue" translator="org.jrtech.common.utils.translator.NumberStringTranslator" />
+				<column visible="false" label="Message ID" name="messageId" width="160px" />
+			</columns>
+			<sortColumnList>
+				<column name="modificationTimestamp" sortDirection="des" />
+			</sortColumnList>
+		</table>
+    </preference>
+    <preference type="SearchFilterPreference" name="Releasable Messages Filter"
+        description="Filtering messages in the status for release." visible="true" entity="Message"
+        module="C&amp;C" scope="Global">
+        <searchCriteria xmlns="http://www.jrtech.org/common/config/criteria">
+            <andExpression>
+                <listExpression field="STATUS">
+                    <item value="DRAFT" />
+                    <item value="FR1" />
+                    <item value="FR2" />
+                </listExpression>
+            </andExpression>
+        </searchCriteria>
+        <searchResult xmlns="http://www.jrtech.org/fms/config/search-result">
+            <object>org.jrtech.fms.lib.msg.Message</object>
+            <columns>
+                <column order="0" visible="true" name="name" />
+                <column order="1" visible="false" name="size" />
+                <column order="2" visible="false" name="id" />
+                <column order="3" visible="false" name="color" />
+            </columns>
+        </searchResult>
+        <myTask lockableOnly="true" actions="release,reject,escalate,return" />
+    </preference>
+    <preference type="SearchFilterPreference" name="Rejected messages"
+        description="Filtering messages in the status for release." visible="true" entity="Message"
+        module="C&amp;C" scope="Global">
+        <searchCriteria xmlns="http://www.jrtech.org/common/config/criteria">
+            <andExpression>
+                <listExpression field="STATUS">
+                    <item value="DRAFT" />
+                    <item value="FR1" />
+                    <item value="FR2" />
+                </listExpression>
+            </andExpression>
+        </searchCriteria>
+        <searchResult xmlns="http://www.jrtech.org/fms/config/search-result">
+            <object>org.jrtech.fms.lib.msg.Message</object>
+            <columns>
+                <column order="0" visible="true" name="name" />
+                <column order="1" visible="false" name="size" />
+                <column order="2" visible="false" name="id" />
+                <column order="3" visible="false" name="color" />
+            </columns>
+        </searchResult>
+    </preference>
+</preferences>

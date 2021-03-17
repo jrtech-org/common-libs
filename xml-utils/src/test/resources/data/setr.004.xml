@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SwInt:ExchangeRequest xmlns:SwInt="urn:swift:snl:ns.SwInt">
+    <SwInt:Request>
+        <SwInt:RequestHeader>
+            <SwInt:Requestor>o=ombssess,o=swift</SwInt:Requestor>
+            <SwInt:Responder>ou=filb2b,o=fidigb22,o=swift</SwInt:Responder>
+            <SwInt:Service>swift.if.ia</SwInt:Service>
+            <SwInt:RequestType>setr.004.001.03</SwInt:RequestType>
+            <SwInt:RequestRef>00076146</SwInt:RequestRef>
+        </SwInt:RequestHeader>
+        <SwInt:RequestPayload>
+            <Ah:AppHdr xmlns:Ah="urn:swift:xsd:$ahV10">
+                <Ah:MsgRef>00076146</Ah:MsgRef>
+                <Ah:CrDate>2011-04-01T16:59:59</Ah:CrDate>
+            </Ah:AppHdr>
+            <Doc:Document xmlns:Doc="urn:swift:xsd:setr.004.001.03">
+                <Doc:RedOrdrV03>
+                    <Doc:MsgId>
+                        <Doc:Id>101778</Doc:Id>
+                        <Doc:CreDtTm>2011-04-01T17:00:18</Doc:CreDtTm>
+                    </Doc:MsgId>
+                    <Doc:MltplOrdrDtls>
+                        <Doc:InvstmtAcctDtls>
+                            <Doc:AcctId>
+                                <Doc:Prtry>
+                                    <Doc:Id>NASA101549</Doc:Id>
+                                </Doc:Prtry>
+                            </Doc:AcctId>
+                        </Doc:InvstmtAcctDtls>
+                        <Doc:IndvOrdrDtls>
+                            <Doc:OrdrRef>101778</Doc:OrdrRef>
+                            <Doc:FinInstrmDtls>
+                                <Doc:Id>
+                                    <Doc:ISIN>LU0267387255</Doc:ISIN>
+                                </Doc:Id>
+                            </Doc:FinInstrmDtls>
+                            <Doc:UnitsNb>
+                                <Doc:Unit>2901.08</Doc:Unit>
+                            </Doc:UnitsNb>
+                            <Doc:PhysDlvryInd>false</Doc:PhysDlvryInd>
+                            <Doc:ReqdSttlmCcy>EUR</Doc:ReqdSttlmCcy>
+                            <Doc:ReqdNAVCcy>EUR</Doc:ReqdNAVCcy>
+                        </Doc:IndvOrdrDtls>
+                    </Doc:MltplOrdrDtls>
+                </Doc:RedOrdrV03>
+            </Doc:Document>
+        </SwInt:RequestPayload>
+    </SwInt:Request>
+</SwInt:ExchangeRequest>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.jrtech.org/fms/DefaultTestConfigData" xmlns="http://www.jrtech.org/fms/DefaultTestConfigData" elementFormDefault="qualified">
+
+    <!-- meta-data root element definition -->
+    <xs:element name="metadata" type="metadata"></xs:element>
+
+    <!-- Property group usage in the meta-data -->
+    <xs:complexType name="metadata">
+        <xs:sequence>
+            <xs:element name="general" type="general-group"></xs:element>
+            <xs:element name="release" type="release-group"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- General data type definition -->
+    <xs:simpleType name="release-principle">
+        <xs:restriction base="xs:int">
+            <xs:enumeration value="2"></xs:enumeration>
+            <xs:enumeration value="4"></xs:enumeration>
+            <xs:enumeration value="6"></xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Property group default definition -->
+    <xs:complexType name="general-group">
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element name="address" type="xs:string" minOccurs="0" />
+            <xs:element name="activation-timestamp" type="xs:dateTime" minOccurs="0" />
+            <xs:element name="allowable-start-time" type="xs:time" minOccurs="1" default="08:00:00" />
+            <xs:element name="allowable-end-time" type="xs:time" minOccurs="1" default="17:00:00" />
+            <xs:element name="booking-date" type="xs:date" minOccurs="1" default="2005-01-01" />
+            <xs:element name="blocked-status-period" type="xs:integer" minOccurs="0" />
+            <xs:element name="comment" type="xs:string" minOccurs="0" />
+            <xs:element name="complexity-requirement" type="xs:string" minOccurs="1" />
+            <xs:element name="concurrent-users" type="xs:integer" minOccurs="0" />
+            <xs:element name="concurrent-user-session-default" type="xs:integer" minOccurs="1" default="5" />
+            <xs:element name="concurrent-user-session-default-max" type="xs:integer" minOccurs="1" default="5" />
+            <xs:element name="contact" type="xs:string" minOccurs="0" />
+            <xs:element name="days-before-notice" type="xs:integer" minOccurs="1" default="-1"/>
+            <xs:element name="default-language-selected" type="xs:string" minOccurs="0" />
+            <xs:element name="email" type="xs:string" minOccurs="0" />
+            <xs:element name="history-requirement" type="xs:integer" minOccurs="1" default="-1" />
+            <xs:element name="id-means" type="xs:string" minOccurs="1" default="PWD" />
+            <xs:element name="id-means-default" type="xs:string" minOccurs="1" default="PWD" />
+            <xs:element name="inactivity-period-default" type="xs:integer" minOccurs="1" default="-1" />
+            <xs:element name="inactivity-period-max" type="xs:integer" minOccurs="1" default="-1" />
+            <xs:element name="language-selected" type="xs:string" minOccurs="0" />
+            <xs:element name="name" type="xs:string" minOccurs="1" />
+            <xs:element name="password-lifetime-default" type="xs:integer" minOccurs="1" default="-1" />
+            <xs:element name="password-lifetime-max" type="xs:integer" minOccurs="1" default="-1" />
+            <xs:element name="password-lifetime-min" type="xs:integer" minOccurs="1" default="-1" />
+            <xs:element name="password-minimum-length" type="xs:integer" minOccurs="1" default="4" />
+            <xs:element name="phone" type="xs:string" minOccurs="0" />
+            <xs:element name="short-mask" type="xs:string" minOccurs="0" />
+            <xs:element name="successive-faulty-login-default" type="xs:integer" minOccurs="1" default="-1" />
+            <xs:element name="successive-faulty-login-max" type="xs:integer" minOccurs="1" default="-1" />
+            <xs:element name="support-text" type="xs:string" minOccurs="0" />
+            <xs:element name="target-status" type="xs:string" minOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="release-group">
+        <xs:all>
+            <xs:element name="organization-release-principle" type="release-principle" minOccurs="0" default="2" />
+            <xs:element name="profile-release-principle" type="release-principle" minOccurs="0" default="2" />
+            <xs:element name="role-release-principle" type="release-principle" minOccurs="0" default="2" />
+            <xs:element name="user-release-principle" type="release-principle" minOccurs="0" default="2" />
+        </xs:all>
+    </xs:complexType>
+
+</xs:schema>

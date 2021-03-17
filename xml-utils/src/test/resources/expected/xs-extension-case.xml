@@ -1,0 +1,13 @@
+<Doc:Document xmlns:Doc="urn:swift:xsd:xsys.004.001.01" xmlns:SwInt="urn:swift:snl:ns.SwInt">
+    <Doc:xsys.004.001.01>
+        <Doc:RptCrit>
+            <Doc:RptOptn/>
+            <Doc:RqstrPttrn/>
+            <Doc:InptChanl/>
+            <Doc:MsgSvc/>
+            <Doc:CtryLctn/>
+            <SwInt:Service/>
+            <SwInt:Priority/>
+        </Doc:RptCrit>
+    </Doc:xsys.004.001.01>
+</Doc:Document>

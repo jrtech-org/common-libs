@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SwInt:ExchangeRequest xmlns:SwInt="urn:swift:snl:ns.SwInt" xmlns:SwSec="urn:swift:snl:ns.SwSec" xmlns:Sw="urn:swift:snl:ns.Sw" xmlns:SwGbl="urn:swift:snl:ns.SwGbl">
+    <SwSec:AuthorisationContext>
+        <SwSec:UserDN />
+    </SwSec:AuthorisationContext>
+    <SwInt:Request>
+        <SwInt:RequestHeader>
+            <SwInt:Requestor />
+            <SwInt:Responder />
+            <SwInt:Service>swift.if.ia!x</SwInt:Service>
+            <SwInt:RequestType>currency.004.001.03</SwInt:RequestType>
+            <SwInt:Priority />
+            <SwInt:RequestRef>UREF#-4947808783535043149</SwInt:RequestRef>
+        </SwInt:RequestHeader>
+        <SwInt:RequestPayload>
+            <Ah:AppHdr xmlns:Ah="urn:swift:xsd:$ahV10">
+                <Ah:MsgRef>APPREF#1204603001582038798</Ah:MsgRef>
+                <Ah:CrDate />
+            </Ah:AppHdr>
+            <Doc:Document xmlns:Doc="urn:swift:xsd:setr.004.001.03" />
+        </SwInt:RequestPayload>
+    </SwInt:Request>
+</SwInt:ExchangeRequest>

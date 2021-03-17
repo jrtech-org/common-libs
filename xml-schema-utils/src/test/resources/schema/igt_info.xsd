@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:ch:bbp:fms:meta:messaging:igt"
+	xmlns:igt="urn:ch:bbp:fms:meta:messaging:igt" elementFormDefault="qualified">
+
+	<xs:element name="info">
+		<xs:complexType>
+			<xs:attribute name="charSet" type="xs:string"/>
+			<xs:attribute name="codeType" type="xs:string"/>
+			<xs:attribute name="dateFormat" type="xs:string"/>
+			<xs:attribute name="decimalSeparator" type="xs:string"/>
+			<xs:attribute name="fieldRef" type="xs:string"/>
+			<xs:attribute name="forceCase" type="xs:string"/>
+			<xs:attribute name="format" type="xs:string"/>
+			<xs:attribute name="id" type="xs:string"/>
+			<xs:attribute name="mandatory" type="xs:string"/>
+			<xs:attribute name="maxChar" type="xs:string"/>
+			<xs:attribute name="maxLine" type="xs:string"/>
+			<xs:attribute name="postfix" type="xs:string"/>
+			<xs:attribute name="prefix" type="xs:string"/>
+			<xs:attribute name="regexp" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

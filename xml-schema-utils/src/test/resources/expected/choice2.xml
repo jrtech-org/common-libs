@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:test:xsd:aaachoice.001.001.01">
+    <ChoiceTestDocument>
+        <AcctId>
+            <Prtry>
+                <Id />
+            </Prtry>
+        </AcctId>
+        <AcctNm />
+        <AcctDsgnt />
+        <OwnrId>
+            <BICOrBEI></BICOrBEI>
+        </OwnrId>
+        <OwnrId>
+            <BICOrBEI></BICOrBEI>
+        </OwnrId>
+        <OwnrId>
+            <PrtryId>
+                <Id></Id>
+                <SchmeNm></SchmeNm>
+                <Issr></Issr>
+            </PrtryId>
+        </OwnrId>
+        <OwnrId>
+            <NmAndAdr>
+                <Nm />
+                <Adr>
+                    <AdrTp />
+                    <AdrLine />
+                    <StrtNm></StrtNm>
+                    <BldgNb></BldgNb>
+                    <PstCd></PstCd>
+                    <TwnNm></TwnNm>
+                    <CtrySubDvsn></CtrySubDvsn>
+                    <Ctry></Ctry>
+                </Adr>
+            </NmAndAdr>
+        </OwnrId>
+        <OwnrId></OwnrId>
+        <AcctSvcr>
+            <BICOrBEI></BICOrBEI>
+        </AcctSvcr>
+        <OrdrOrgtrElgblty />
+        <testNode>
+            <Tp></Tp>
+            <ChrgBsis>
+            </ChrgBsis>
+            <Amt></Amt>
+            <RcptId>
+                <NmAndAdr>
+                    <Nm />
+                    <Adr>
+                        <AdrTp />
+                        <AdrLine />
+                        <StrtNm></StrtNm>
+                        <BldgNb></BldgNb>
+                        <PstCd></PstCd>
+                        <TwnNm></TwnNm>
+                        <CtrySubDvsn></CtrySubDvsn>
+                        <Ctry></Ctry>
+                    </Adr>
+                </NmAndAdr>
+            </RcptId>
+        </testNode>
+    </ChoiceTestDocument>
+</Document>

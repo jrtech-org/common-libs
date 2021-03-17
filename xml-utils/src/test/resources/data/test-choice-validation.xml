@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:test:xsd:test.choice.validation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:test:xsd:test.choice.validation ../schema/test-choice-validation.xsd">
+    <ChoiceTestDocument>
+        <AcctId>
+            <Prtry>
+                <Id>jruac01</Id>
+            </Prtry>
+        </AcctId>
+        <AcctNm>Jumin Rubin</AcctNm>
+        <myattr></myattr>
+        <OwnrId>
+            <BICOrBEI>PTSACHBC001</BICOrBEI>
+        </OwnrId>
+        <AcctSvcr>
+            <BICOrBEI>PTSACHBC001</BICOrBEI>
+        </AcctSvcr>
+        <Securities>
+            <ISIN>CH1234567890</ISIN>
+        </Securities>
+        <OrdrOrgtrElgblty>ELIG</OrdrOrgtrElgblty>
+        <Order>
+            <SubAcctForHldg>
+                <Id>
+                    <Prtry>
+                        <Id>123</Id>
+                    </Prtry>
+                </Id>
+            </SubAcctForHldg>
+            <GrssAmt Ccy="EUR">300</GrssAmt>
+            <GrssAmt2 Ccy="CHF">10</GrssAmt2>
+        </Order>
+        <testNode>
+            <Tp>BEND</Tp>
+            <Amt Ccy="EUR">10</Amt>
+        </testNode>
+    </ChoiceTestDocument>
+</Document>

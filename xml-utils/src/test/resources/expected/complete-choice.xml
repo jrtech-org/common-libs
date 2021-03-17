@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:bbp:choice:complete">
+    <ChoiceTestDocument>
+        <AcctId>
+            <Prtry>
+                <Id />
+            </Prtry>
+        </AcctId>
+        <AcctNm />
+        <OwnrId></OwnrId>
+        <GrssAmt Ccy="CHF">100</GrssAmt>
+        <AcctSvcr>
+        </AcctSvcr>
+        <OrdrOrgtrElgblty />
+        <Charging />
+    </ChoiceTestDocument>
+</Document>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:test:xsd:aaachoice.001.001.01">
+    <ChoiceTestDocument>
+        <AcctId>
+            <Prtry>
+                <Id />
+            </Prtry>
+        </AcctId>
+        <AcctNm />
+        <OwnrId />
+        <AcctSvcr />
+        <OrdrOrgtrElgblty />
+        <testNode>
+            <Tp></Tp>
+            <ChrgBsis>
+            </ChrgBsis>
+            <Amt></Amt>
+            <RcptId></RcptId>
+        </testNode>
+    </ChoiceTestDocument>
+</Document>

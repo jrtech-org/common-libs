@@ -1,0 +1,32 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.jrtech.org/config/data-table"
+    xmlns="http://www.jrtech.org/config/data-table" elementFormDefault="qualified">
+
+    <xs:element name="dataTable" type="DataTableType" />
+
+    <xs:complexType name="DataTableType">
+        <xs:sequence>
+            <xs:element name="object" type="xs:string" />
+            <xs:element name="columns" type="ColumnsType" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ColumnsType">
+        <xs:choice maxOccurs="unbounded">
+            <xs:element name="column" type="ColumnType" />
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="ColumnType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="allowed" type="xs:boolean" use="optional" />
+                <xs:attribute name="label" type="xs:string" use="optional" />
+                <xs:attribute name="name" type="xs:string" use="required" />
+                <xs:attribute name="visible" type="xs:boolean" use="optional" default="true" />
+                <xs:attribute name="retrievingMethod" type="xs:string" default="default" />
+                <xs:attribute name="width" type="xs:string" use="optional" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+</xs:schema>

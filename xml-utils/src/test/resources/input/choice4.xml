@@ -1,0 +1,78 @@
+<documentMt103 xmlns="urn:ch:bbp:fms:meta:messaging:swift:fin:mt103">
+    <mt103>
+        <f20>
+            <reference>jru2013050301</reference>
+        </f20>
+        <f13C>
+            <code />
+            <timeIndication />
+            <sign />
+            <timeOffset />
+        </f13C>
+        <f23B>
+            <typeOfOperation>CRED</typeOfOperation>
+        </f23B>
+        <f23E>
+            <instructionCode />
+            <additionalInformation />
+        </f23E>
+        <f26T>
+            <type />
+        </f26T>
+        <f32A>
+            <date>130503</date>
+            <currency>USD</currency>
+            <amount>1510,00</amount>
+        </f32A>
+        <f33B>
+            <currency />
+            <amount />
+        </f33B>
+        <f36>
+            <rate />
+        </f36>
+        <opt_50a>
+            <f50K>
+                <account />
+                <nameAndAddress>Jumin Rubin, Baden</nameAndAddress>
+            </f50K>
+        </opt_50a>
+        <f51A>
+            <debitCreditIndicator />
+            <partyIdentifier />
+            <identifierCode />
+        </f51A>
+        <opt_52a />
+        <opt_53a />
+        <opt_54a />
+        <opt_55a />
+        <opt_56a />
+        <opt_57a />
+        <opt_59a>
+            <f59>
+                <account />
+                <nameAndAddress>Othmar Wirth, Baden</nameAndAddress>
+            </f59>
+        </opt_59a>
+        <f70>
+            <remittanceInformation />
+        </f70>
+        <f71A>
+            <code>SHA</code>
+        </f71A>
+        <f71F>
+            <currency />
+            <amount />
+        </f71F>
+        <f71G>
+            <currency />
+            <amount />
+        </f71G>
+        <f72>
+            <narrativeStructuredFormat />
+        </f72>
+        <f77B>
+            <narrative />
+        </f77B>
+    </mt103>
+</documentMt103>

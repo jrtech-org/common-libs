@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SwInt:ExchangeRequest xmlns:SwInt="urn:swift:snl:ns.SwInt">
+    <SwInt:Request>
+        <SwInt:RequestHeader>
+            <SwInt:Requestor>o=ombssess,o=swift</SwInt:Requestor>
+            <SwInt:Responder>ou=filb2b,o=fidigb22,o=swift</SwInt:Responder>
+            <SwInt:Service>swift.if.ia</SwInt:Service>
+            <SwInt:RequestType>setr.004.001.03</SwInt:RequestType>
+            <SwInt:RequestRef>00076146</SwInt:RequestRef>
+        </SwInt:RequestHeader>
+        <SwInt:RequestPayload>
+        </SwInt:RequestPayload>
+    </SwInt:Request>
+</SwInt:ExchangeRequest>

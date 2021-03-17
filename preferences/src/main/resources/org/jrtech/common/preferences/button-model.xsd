@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.jrtech.org/config/button-model" xmlns="http://www.jrtech.org/config/button-model" elementFormDefault="qualified">
+
+	<xs:element name="functionCatalog" type="functionCatalogType" />
+
+	<xs:element name="buttonStatus" type="buttonStatusType" />
+
+	<xs:complexType name="functionCatalogType">
+		<xs:sequence>
+			<xs:element name="function" type="functionType" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="functionType">
+		<xs:attribute name="id" type="xs:ID" use="required" />
+		<xs:attribute name="labelKey" type="xs:string" use="required" />
+		<xs:attribute name="defaultLabel" type="xs:string" use="optional" />
+		<xs:attribute name="actionName" type="xs:string" use="optional">
+			<xs:annotation>
+				<xs:documentation>Action name for authorization, in case the action name differs to the id of this function.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="eventName" type="eventNameType" use="required" />
+		<xs:attribute name="checkLevel" type="checkLevelType" use="optional" default="none" />
+	</xs:complexType>
+
+	<xs:simpleType name="eventNameType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="on[A-Z][a-z]([A-Z]|[a-z])*"></xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="checkLevelType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="none">
+				<xs:annotation>
+					<xs:documentation>No authorization required.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="permission">
+				<xs:annotation>
+					<xs:documentation>Result table and single object is selected.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="workflow">
+				<xs:annotation>
+					<xs:documentation>Result table and many objects are selected.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="buttonStatusType">
+		<xs:sequence>
+			<xs:element name="stateFunctionAssignment" type="stateFunctionAssignmentType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="stateFunctionAssignmentType">
+		<xs:sequence>
+			<xs:element name="moreFunctions" type="functionUsageListType" />
+			<xs:element name="specialFunctions" type="functionUsageListType" />
+			<xs:element name="commonActions" type="functionUsageListType" />
+		</xs:sequence>
+		<xs:attribute name="access" type="accessType">
+			<xs:annotation>
+				<xs:documentation>Access on the object.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="functionUsageListType">
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="function" type="functionUsageType" />
+				<xs:element name="separator" type="xs:token" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="functionUsageType">
+		<xs:sequence>
+			<xs:element name="status" type="statusType" />
+		</xs:sequence>
+		<xs:attribute name="idref" type="xs:IDREF" />
+	</xs:complexType>
+
+	<xs:complexType name="statusType">
+		<xs:attribute name="pattern" type="xs:string" />
+	</xs:complexType>
+
+	<xs:simpleType name="accessType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DS">
+				<xs:annotation>
+					<xs:documentation>Detail and single object.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RS">
+				<xs:annotation>
+					<xs:documentation>Result table and single object is selected.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RM">
+				<xs:annotation>
+					<xs:documentation>Result table and many objects are selected.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="R0">
+				<xs:annotation>
+					<xs:documentation>Result table is shown/opened but no items in the
+						table.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="R1">
+				<xs:annotation>
+					<xs:documentation>Result table is shown/opened and one or more
+						items are in the table.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="-">
+				<xs:annotation>
+					<xs:documentation>Default case when others are not applied.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

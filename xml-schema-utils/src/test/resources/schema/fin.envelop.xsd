@@ -1,0 +1,860 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="urn:ch:bbp:fms:meta:messaging:swift:fin:msg" xmlns="urn:ch:bbp:fms:meta:messaging:swift:fin:msg"
+	xmlns:info="urn:ch:bbp:fms:meta:messaging:info" elementFormDefault="qualified">
+
+	<xs:complexType name="AbstractComplexType" abstract="true" />
+	<xs:complexType name="Block" abstract="true" />
+	<xs:complexType name="BlockWithTags" abstract="true" />
+	<xs:complexType name="BlockWithValues" abstract="true" />
+	<xs:complexType name="Field" abstract="true" />
+	<xs:complexType name="FieldFixedLength" abstract="true" />
+	<xs:complexType name="FieldGeneric" abstract="true" />
+	<xs:complexType name="FieldOption" abstract="true" />
+	<xs:complexType name="FieldSimple" abstract="true" />
+	<xs:complexType name="Message" abstract="true" />
+	<xs:complexType name="MessageText" abstract="true" />
+	<xs:complexType name="Narrative" abstract="true" />
+	<xs:complexType name="Sequence" abstract="true" />
+
+	<xs:element name="Fin" type="FinMessage" />
+	<xs:element name="Gpa" type="GpaMessage" />
+
+	<xs:complexType name="FinMessage">
+		<xs:complexContent>
+			<xs:extension base="Message">
+				<xs:sequence>
+					<xs:element name="B1" type="BasicHeaderBlockFin">
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">1: Basic Header Block</xs:documentation>
+							<xs:appinfo>
+								<info:tag value="1" />
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="B2" type="ApplicationHeaderBlockFin">
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">2: Application Header Block</xs:documentation>
+							<xs:appinfo>
+								<info:tag value="2" />
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="B3" type="UserHeaderBlock"  minOccurs="0">
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">3: User Header Block</xs:documentation>
+							<xs:appinfo>
+								<info:tag value="3" />
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="B4" type="TextBlock" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">4: Text Block</xs:documentation>
+							<xs:appinfo>
+								<info:tag value="4" />
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="B5" type="TrailerBlock" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">5: Trailer Block</xs:documentation>
+							<xs:appinfo>
+								<info:tag value="5" />
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="GpaMessage">
+		<xs:complexContent>
+			<xs:extension base="Message">
+				<xs:sequence>
+					<xs:element name="B1" type="BasicHeaderBlockGpa">
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">1: Basic Header Block</xs:documentation>
+							<xs:appinfo>
+								<info:tag value="1" />
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="B2" type="ApplicationHeaderBlockGpa">
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">2: Application Header Block</xs:documentation>
+							<xs:appinfo>
+								<info:tag value="2" />
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="B4" type="TextBlock"
+						minOccurs="0">
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">4: Text Block</xs:documentation>
+							<xs:appinfo>
+								<info:tag value="4" />
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="B5" type="TrailerBlock"
+						minOccurs="0">
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">5: Trailer Block</xs:documentation>
+							<xs:appinfo>
+								<info:tag value="5" />
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="BasicHeaderBlockFin">
+		<xs:complexContent>
+			<xs:extension base="BlockWithValues">
+				<xs:sequence>
+					<xs:element name="ApplicationId" >
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">Application Identifier</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="ApplicationIds">
+								<xs:pattern value="F"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="ServiceId" >
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">Service Identifier</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="ServiceIds">
+								<xs:pattern value="01"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="Lt" type="SwiftAddress" >
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">Logical Terminal Address</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SessionNo" type="SessionNo" />
+					<xs:element name="SequenceNo" type="SequenceNo" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="BasicHeaderBlockGpa">
+		<xs:complexContent>
+			<xs:extension base="BlockWithValues">
+				<xs:sequence>
+					<xs:element name="ApplicationId">
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">Application Identifier</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="ApplicationIds">
+								<xs:pattern value="A"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="ServiceId" >
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">Service Identifier</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="ServiceIds">
+								<xs:pattern value="01"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="Lt" type="SwiftAddress" >
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">Logical Terminal Address</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SessionNo" type="SessionNo" />
+					<xs:element name="SequenceNo" type="SequenceNo" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ApplicationHeaderBlockFin">
+		<xs:complexContent>
+			<xs:extension base="BlockWithValues">
+				<xs:sequence>
+					<xs:choice>
+						<!-- incoming -->
+						<xs:sequence>
+							<xs:element name="IncomingId" type="DirectionIncoming" />
+							<xs:element name="Mt" type="MessageType"/>
+							<xs:element name="Destination" type="SwiftAddress" >
+								<xs:annotation>
+									<xs:documentation source="Name" xml:lang="EN">Destination Address</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MsgPriority" type="MessagePriority"/>
+							<xs:element name="DeliveryMonitoring" type="DeliveryMonitoring" minOccurs="0"/>
+							<xs:element name="ObsolescencePeriod" type="ObsolescencePeriod" minOccurs="0"/>
+						</xs:sequence>
+						<!-- outgoing -->
+						<xs:sequence>
+							<xs:element name="OutgoingId" type="DirectionOutgoing" />
+							<xs:element name="Mt" type="MessageType"/>
+							<xs:element name="Mir" type="MIR"/>
+							<xs:element name="OutgoingDate" type="DateTime_YYMMDD"/>
+							<xs:element name="OutgoingTime" type="DateTime_HHMM"/>
+							<xs:element name="MsgPriority" type="MessagePriority"/>
+						</xs:sequence>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="ApplicationHeaderBlockGpa">
+		<xs:complexContent>
+			<xs:extension base="BlockWithValues">
+				<xs:sequence>
+					<xs:choice>
+						<!-- incoming -->
+						<xs:sequence>
+							<xs:element name="IncomingId" type="DirectionIncoming" />
+							<xs:element name="Mt" type="MessageType"/>
+							<xs:element name="Recipient" type="SwiftAddress" >
+								<xs:annotation>
+									<xs:documentation source="Name" xml:lang="EN">Recipient Address</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+						<!-- outgoing -->
+						<xs:sequence>
+							<xs:element name="OutgoingId" type="DirectionOutgoing" />
+							<xs:element name="Mt" type="MessageType"/>
+							<xs:element name="IncomingTime" type="DateTime_HHMM"/>
+							<xs:element name="Mir" type="MIR"/>
+							<xs:element name="OutgoingDate" type="DateTime_YYMMDD"/>
+							<xs:element name="OutgoingTime" type="DateTime_HHMM"/>
+						</xs:sequence>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="UserHeaderBlock">
+		<xs:complexContent>
+			<xs:extension base="BlockWithTags">
+				<xs:sequence>
+					<xs:element name="F103" type="F103" minOccurs="0">
+						<xs:annotation>
+							<xs:appinfo>
+								<info:tag value="103"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="F113" type="F113" minOccurs="0">
+						<xs:annotation>
+							<xs:appinfo>
+								<info:tag value="113"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="F108" type="F108" minOccurs="0">
+						<xs:annotation>
+							<xs:appinfo>
+								<info:tag value="108"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="F119" type="F119" minOccurs="0">
+						<xs:annotation>
+							<xs:appinfo>
+								<info:tag value="119"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="F115" type="F115" minOccurs="0">
+						<xs:annotation>
+							<xs:appinfo>
+								<info:tag value="115"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="F433" type="F433" minOccurs="0">
+						<xs:annotation>
+							<xs:appinfo>
+								<info:tag value="433"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="F423" type="F423" minOccurs="0">
+						<xs:annotation>
+							<xs:appinfo>
+								<info:tag value="423"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="F424" type="F424" minOccurs="0">
+						<xs:annotation>
+							<xs:appinfo>
+								<info:tag value="424"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="TextBlock">
+		<xs:complexContent>
+			<xs:extension base="BlockWithTags">
+				<xs:sequence>
+					<xs:any namespace="##any" processContents="strict"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="TrailerBlock">
+		<xs:complexContent>
+			<xs:extension base="BlockWithTags">
+				<xs:sequence>
+					<xs:element name="Chk" type="CHK" minOccurs="0">
+						<xs:annotation>
+							<xs:appinfo>
+								<info:Tag value="CHK"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Sys" type="SYS" minOccurs="0">
+						<xs:annotation>
+							<xs:appinfo>
+								<info:Tag value="SYS"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Tng" type="TNG" minOccurs="0">
+						<xs:annotation>
+							<xs:appinfo>
+								<info:Tag value="TNG"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Pde" type="PDE" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:appinfo>
+								<info:Tag value="PDE"/>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="Dlm" type="DLM">
+							<xs:annotation>
+								<xs:appinfo>
+									<info:Tag value="DLM"/>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Pdm" type="PDM">
+							<xs:annotation>
+								<xs:appinfo>
+									<info:Tag value="PDM"/>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Mrf" type="MRF">
+							<xs:annotation>
+								<xs:appinfo>
+									<info:Tag value="MRF"/>
+								</xs:appinfo>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+
+	<xs:simpleType name="ApplicationIds">
+		<xs:annotation>
+			<xs:appinfo>
+				<info:fin-format value="1!a"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[AF]{1}"/>
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1"/>
+			<xs:enumeration value="A"/>
+			<xs:enumeration value="F"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ServiceIds">
+		<xs:annotation>
+			<xs:appinfo>
+				<info:fin-format value="2!n"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{2}"/>
+			<xs:minLength value="2"/>
+			<xs:maxLength value="2"/>
+			<xs:enumeration value="01"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="SwiftAddress">
+		<xs:annotation>
+			<xs:appinfo>
+				<info:fin-format value="4!a2!a2!c1!c3!c"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="12"/>
+			<xs:maxLength value="12"/>
+			<xs:pattern value="[A-Z]{4}[A-Z]{2}[0-9A-Z]{2}[0-9A-Z][0-9A-Z]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="SessionNo">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">Session Number</xs:documentation>
+			<xs:appinfo>
+				<info:fin-format value="4!n"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="4"/>
+			<xs:maxLength value="4"/>
+			<xs:pattern value="[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="SequenceNo">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">Sequence Number</xs:documentation>
+			<xs:appinfo>
+				<info:FinFormat value="6!n"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="6"/>
+			<xs:maxLength value="6"/>
+			<xs:pattern value="[0-9]{6}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DirectionIncoming">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">Incoming Identifier</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Directions">
+			<xs:enumeration value="I"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DirectionOutgoing">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">Outgoing Identifier</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="Directions">
+			<xs:enumeration value="O"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="Directions">
+		<xs:annotation>
+			<xs:appinfo>
+				<info:fin-format value="1!a"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1"/>
+			<xs:pattern value="[IO]"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="MessageType">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">Message Type</xs:documentation>
+			<xs:appinfo>
+				<info:fin-format value="3!n"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="3"/>
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="MessagePriority">
+		<xs:restriction base="MessagePriorities"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="MessagePriorities">
+		<xs:annotation>
+			<xs:appinfo>
+				<info:fin-format value="1!a"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1"/>
+			<xs:pattern value="[A-Z]"/>
+			<xs:enumeration value="S"/>
+			<xs:enumeration value="U"/>
+			<xs:enumeration value="N"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DeliveryMonitoring">
+		<xs:restriction base="DeliveryMonitorings"/>
+	</xs:simpleType>
+
+	<xs:simpleType name="DeliveryMonitorings">
+		<xs:annotation>
+			<xs:appinfo>
+				<info:fin-format value="1!n"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1"/>
+			<xs:pattern value="[0-9]"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ObsolescencePeriod">
+		<xs:annotation>
+			<xs:appinfo>
+				<info:fin-format value="3!n"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="3"/>
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DateTime_HHMM">
+		<xs:annotation>
+			<xs:appinfo>
+				<info:fin-format value="HHMM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="4"/>
+			<xs:maxLength value="4"/>
+			<xs:pattern value="[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DateTime_HHMMSS">
+		<xs:annotation>
+			<xs:appinfo>
+				<info:fin-format value="HHMM"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="6"/>
+			<xs:maxLength value="6"/>
+			<xs:pattern value="[0-9]{6}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="DateTime_YYMMDD">
+		<xs:annotation>
+			<xs:appinfo>
+				<info:fin-format value="YYMMDD"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="6"/>
+			<xs:maxLength value="6"/>
+			<xs:pattern value="[0-9]{6}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="CHK">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">CHK: Checksum</xs:documentation>
+			<xs:appinfo>
+				<info:fin-format value="12!h"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="12"/>
+			<xs:maxLength value="12"/>
+			<xs:pattern value="[0-9A-F]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="SYS">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">SYS: System Originated Message</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="FieldOption">
+				<xs:sequence minOccurs="0">
+					<xs:element name="time" type="DateTime_HHMM" minOccurs="0"/>
+					<xs:element name="Mir" type="MIR"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="MIR">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">Message Input Reference</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="AbstractComplexType">
+				<xs:sequence>
+					<xs:element name="incoming-date" type="DateTime_YYMMDD" />
+					<xs:element name="sender" type="SwiftAddress">
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">Sending FIN Address</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SessionNo" type="SessionNo" />
+					<xs:element name="isn" type="SequenceNo" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="MOR">
+		<xs:complexContent>
+			<xs:extension base="AbstractComplexType">
+				<xs:sequence>
+					<xs:element name="date" type="DateTime_YYMMDD"/>
+					<xs:element name="receiver" type="SwiftAddress">
+						<xs:annotation>
+							<xs:documentation source="Name" xml:lang="EN">Receiving FIN Address</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="SessionNo" type="SessionNo"/>
+					<xs:element name="osn" type="SequenceNo"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="TNG">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="PDE">
+		<xs:complexContent>
+			<xs:extension base="FieldOption">
+				<xs:sequence minOccurs="0">
+					<xs:element name="time" type="DateTime_HHMM"/>
+					<xs:element name="Mir" type="MIR"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="PDM">
+		<xs:complexContent>
+			<xs:extension base="FieldOption">
+				<xs:sequence minOccurs="0">
+					<xs:element name="time" type="DateTime_HHMM"/>
+					<xs:element name="mor" type="MOR"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="DLM">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="MRF">
+		<xs:complexContent>
+			<xs:extension base="FieldOption">
+				<xs:sequence>
+					<xs:element name="date" type="DateTime_YYMMDD"/>
+					<xs:element name="full-time" type="DateTime_HHMMSS"/>
+					<xs:element name="Mir" type="MIR"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="F103">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">Service Identifier</xs:documentation>
+			<xs:appinfo>
+				<info:fin-format value="3!a"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="3"/>
+			<xs:maxLength value="3"/>
+			<xs:pattern value="[A-Z]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="F113">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">Banking Priority</xs:documentation>
+			<xs:appinfo>
+				<info:fin-format value="4!x"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="4"/>
+			<xs:maxLength value="4"/>
+			<xs:pattern value="[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+ ]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="F108">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">Message User Reference</xs:documentation>
+			<xs:appinfo>
+				<info:fin-format value="16x"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="16"/>
+			<xs:pattern value="[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+ ]{1,16}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="F119">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">Validation Flag</xs:documentation>
+			<xs:appinfo>
+				<info:fin-format value="8c"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="8"/>
+			<xs:pattern value="[0-9A-Z]{1,8}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="F115">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">Addressee Information</xs:documentation>
+			<xs:appinfo>
+				<info:fin-format value="32x"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="32"/>
+			<xs:pattern value="[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+ ]{1,32}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="F433">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">Receiver Information (Sanctions screening only)</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="FieldOption">
+				<xs:sequence>
+					<xs:element name="code">
+						<xs:annotation>
+							<xs:appinfo>
+								<info:fin-format value="3!a"/>
+								<info:sep-prefix value="/"/>
+								<info:sep-suffix value="/"/>
+							</xs:appinfo>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:minLength value="3"/>
+								<xs:maxLength value="3"/>
+								<xs:pattern value="[A-Z]{3}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="additional-info" minOccurs="0" >
+						<xs:annotation>
+							<xs:appinfo>
+								<info:fin-format value="20x"/>
+							</xs:appinfo>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:minLength value="1"/>
+								<xs:maxLength value="20"/>
+								<xs:pattern value="[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+ ]{1,20}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="F423">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">Balance checkpoint date and time</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="FieldOption">
+				<xs:sequence>
+					<xs:element name="date" type="DateTime_YYMMDD"/>
+					<xs:element name="time" type="DateTime_HHMMSS"/>
+					<xs:element name="hundredths-of-a-second" minOccurs="0" >
+						<xs:simpleType>
+							<xs:annotation>
+								<xs:appinfo>
+									<info:fin-format value="2!n"/>
+								</xs:appinfo>
+							</xs:annotation>
+							<xs:restriction base="xs:string">
+								<xs:minLength value="2"/>
+								<xs:maxLength value="2"/>
+								<xs:pattern value="[0-9]{2}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="F424">
+		<xs:annotation>
+			<xs:documentation source="Name" xml:lang="EN">Related Reference</xs:documentation>
+			<xs:appinfo>
+				<info:fin-format value="16x"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="16"/>
+			<xs:pattern value="[0-9a-zA-Z/\-\?:\(\)\.,&apos;\+ ]{1,16}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

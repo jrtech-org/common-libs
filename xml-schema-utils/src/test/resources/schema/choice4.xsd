@@ -1,0 +1,2009 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   SWIFT-FIN MT 103 
+   version 2012 (igt-version SR2011_MODIFIED-BBP-ONLY-SR2010_January2011)
+   transformed by trafo.xsl v.1.2.0 on March 8th, 2013 at 14:24:26
+
+   Copyright © BBP AG, Baden, Switzerland. All rights reserved.
+
+   Generated code. Please don't edit!
+-->
+<xs:schema xmlns:igt="urn:ch:bbp:fms:meta:messaging:igt"
+           xmlns:info="urn:ch:bbp:fms:meta:messaging:info"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="urn:ch:bbp:fms:meta:messaging:swift:fin:mt103"
+           xmlns="urn:ch:bbp:fms:meta:messaging:swift:fin:mt103"
+           elementFormDefault="qualified">
+   <xs:element name="documentMt103" type="Document"/>
+   <xs:complexType name="Document">
+      <xs:sequence>
+         <xs:element name="mt103" type="Mt103"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="F13C">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="code" type="CodeFinTimeInd">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="8c"/>
+                        <info:tag value="Code"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sep-postfix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="timeIndication" type="DateTimeHHmm">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Time Indication</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4!n"/>
+                        <info:tag value="Time Indication"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="sign" type="CodeSign">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Sign</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!x"/>
+                        <info:tag value="Sign"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="timeOffset" type="DateTimeHHmm">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Time offset</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4!n"/>
+                        <info:tag value="Time offset"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F20">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="reference" type="Reference16X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Reference</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="16x"/>
+                        <info:tag value="Reference"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F23B">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="typeOfOperation" type="CodeFinBankOper">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Type of Operation</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4!c"/>
+                        <info:tag value="Type of Operation"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F23E">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="instructionCode" type="CodeFinInstructionCode">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Instruction Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4!c"/>
+                        <info:tag value="Instruction Code"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="additionalInformation" type="Information30X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Additional Information</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="30x"/>
+                        <info:tag value="Additional Information"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F26T">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="type" type="Type">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Type</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="3!c"/>
+                        <info:tag value="Type"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F32A">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="date" type="DateTimeyyMMdd">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Date</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="6!n"/>
+                        <info:tag value="Date"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="currency" type="CodeCurrencyCode">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Currency</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="3!a"/>
+                        <info:tag value="Currency"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="amount" type="Amount15D">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Amount</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="15d"/>
+                        <info:tag value="Amount"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F33B">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="currency" type="CodeCurrencyCode">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Currency</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="3!a"/>
+                        <info:tag value="Currency"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="amount" type="Amount15D">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Amount</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="15d"/>
+                        <info:tag value="Amount"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F36">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="rate" type="Rate">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Rate</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="12d"/>
+                        <info:tag value="Rate"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F50A">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="account" type="Account34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Account</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Account"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="identifierCode" type="CodeBicBei">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4!a2!a2!c[3!c]"/>
+                        <info:tag value="Identifier Code"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F50F">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="partyIdentifier" type="PartyIdentifier35X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="35x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="nameAndAddress" type="Address4S35X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4*35x"/>
+                        <info:max-line value="4"/>
+                        <info:min-line value="1"/>
+                        <info:tag value="Name and Address"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F50K">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="account" type="Account34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Account</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Account"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="nameAndAddress" type="Address4S35X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4*35x"/>
+                        <info:max-line value="4"/>
+                        <info:min-line value="1"/>
+                        <info:tag value="Name and Address"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F51A">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="identifierCode" type="CodeBic">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4!a2!a2!c[3!c]"/>
+                        <info:tag value="Identifier Code"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F52A">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="identifierCode" type="CodeBic">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4!a2!a2!c[3!c]"/>
+                        <info:tag value="Identifier Code"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F52D">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="nameAndAddress" type="Address4S35X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4*35x"/>
+                        <info:max-line value="4"/>
+                        <info:min-line value="1"/>
+                        <info:tag value="Name and Address"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F53A">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="identifierCode" type="CodeBic">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4!a2!a2!c[3!c]"/>
+                        <info:tag value="Identifier Code"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F53B">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="location" type="Location35X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Location</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="35x"/>
+                        <info:tag value="Location"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F53D">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="nameAndAddress" type="Address4S35X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4*35x"/>
+                        <info:max-line value="4"/>
+                        <info:min-line value="1"/>
+                        <info:tag value="Name and Address"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F54A">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="identifierCode" type="CodeBic">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4!a2!a2!c[3!c]"/>
+                        <info:tag value="Identifier Code"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F54B">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="location" type="Location35X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Location</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="35x"/>
+                        <info:tag value="Location"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F54D">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="nameAndAddress" type="Address4S35X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4*35x"/>
+                        <info:max-line value="4"/>
+                        <info:min-line value="1"/>
+                        <info:tag value="Name and Address"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F55A">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="identifierCode" type="CodeBic">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4!a2!a2!c[3!c]"/>
+                        <info:tag value="Identifier Code"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F55B">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="location" type="Location35X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Location</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="35x"/>
+                        <info:tag value="Location"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F55D">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="nameAndAddress" type="Address4S35X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4*35x"/>
+                        <info:max-line value="4"/>
+                        <info:min-line value="1"/>
+                        <info:tag value="Name and Address"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F56A">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="identifierCode" type="CodeBic">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4!a2!a2!c[3!c]"/>
+                        <info:tag value="Identifier Code"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F56C">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F56D">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="nameAndAddress" type="Address4S35X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4*35x"/>
+                        <info:max-line value="4"/>
+                        <info:min-line value="1"/>
+                        <info:tag value="Name and Address"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F57A">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="identifierCode" type="CodeBic">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4!a2!a2!c[3!c]"/>
+                        <info:tag value="Identifier Code"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F57B">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="location" type="Location35X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Location</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="35x"/>
+                        <info:tag value="Location"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F57C">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F57D">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="debitCreditIndicator"
+                           type="CodeDebitCreditIndicator"
+                           minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Debit/Credit Indicator</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="1!a"/>
+                        <info:tag value="Debit/Credit Indicator"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="partyIdentifier" type="PartyIdentifier34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Party Identifier</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Party Identifier"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="nameAndAddress" type="Address4S35X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4*35x"/>
+                        <info:max-line value="4"/>
+                        <info:min-line value="1"/>
+                        <info:tag value="Name and Address"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F59">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="account" type="Account34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Account</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Account"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="nameAndAddress" type="Address4S35X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4*35x"/>
+                        <info:max-line value="4"/>
+                        <info:min-line value="1"/>
+                        <info:tag value="Name and Address"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F59A">
+      <xs:complexContent>
+         <xs:extension base="MtFieldOption">
+            <xs:sequence>
+               <xs:element name="account" type="Account34X" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Account</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="34x"/>
+                        <info:tag value="Account"/>
+                        <info:sep-prefix value="/"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="false"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="identifierCode" type="CodeBicBei">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4!a2!a2!c[3!c]"/>
+                        <info:tag value="Identifier Code"/>
+                        <info:sub-field-id value="2"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F70">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="remittanceInformation" type="Information4S35X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Remittance Information</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="4*35x"/>
+                        <info:max-line value="4"/>
+                        <info:min-line value="1"/>
+                        <info:tag value="Remittance Information"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F71A">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="code" type="CodeFinTransCharges">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="3!a"/>
+                        <info:tag value="Code"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F71F">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="currency" type="CodeCurrencyCode">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Currency</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="3!a"/>
+                        <info:tag value="Currency"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="amount" type="Amount15D">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Amount</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="15d"/>
+                        <info:tag value="Amount"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F71G">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="currency" type="CodeCurrencyCode">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Currency</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="3!a"/>
+                        <info:tag value="Currency"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="amount" type="Amount15D">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Amount</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="15d"/>
+                        <info:tag value="Amount"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F72">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="narrativeStructuredFormat" type="Information6S35X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Narrative - Structured Format</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="6*35x"/>
+                        <info:max-line value="6"/>
+                        <info:min-line value="1"/>
+                        <info:tag value="Narrative - Structured Format"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="F77B">
+      <xs:complexContent>
+         <xs:extension base="MtField">
+            <xs:sequence>
+               <xs:element name="narrative" type="Narrative3S35X">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">Narrative</xs:documentation>
+                     <xs:appinfo>
+                        <info:format value="3*35x"/>
+                        <info:max-line value="3"/>
+                        <info:min-line value="1"/>
+                        <info:tag value="Narrative"/>
+                        <info:sub-field-id value="1"/>
+                        <info:sub-field-mandatory value="true"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Mt103">
+      <xs:complexContent>
+         <xs:extension base="MtMessage">
+            <xs:sequence>
+               <xs:element name="f20" type="F20">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">20 : Sender Reference</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="20"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f13C" type="F13C" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">13C: Time Indication</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="13C"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f23B" type="F23B">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">23B: Bank Operation Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="23B"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f23E" type="F23E" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">23E: Instruction Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="23E"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f26T" type="F26T" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">26T: Transaction Type Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="26T"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f32A" type="F32A">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">32A: Value Date/Currency/Interbank Settled Amount</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="32A"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f33B" type="F33B" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">33B: Currency/Instructed Amount</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="33B"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f36" type="F36" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">36 : Exchange Rate</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="36"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="opt_50a" type="Opt_50a"/>
+               <xs:element name="f51A" type="F51A" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">51A: Sending Institution (Identifier Code)</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="51A"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="opt_52a" type="Opt_52a" minOccurs="0"/>
+               <xs:element name="opt_53a" type="Opt_53a" minOccurs="0"/>
+               <xs:element name="opt_54a" type="Opt_54a" minOccurs="0"/>
+               <xs:element name="opt_55a" type="Opt_55a" minOccurs="0"/>
+               <xs:element name="opt_56a" type="Opt_56a" minOccurs="0"/>
+               <xs:element name="opt_57a" type="Opt_57a" minOccurs="0"/>
+               <xs:element name="opt_59a" type="Opt_59a"/>
+               <xs:element name="f70" type="F70" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">70 : Remittance Information</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="70"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f71A" type="F71A">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">71A: Details of Charges</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="71A"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f71F" type="F71F" minOccurs="0" maxOccurs="unbounded">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">71F: Sender Charges</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="71F"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f71G" type="F71G" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">71G: Receiver Charges</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="71G"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f72" type="F72" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">72 : Sender to Receiver Information</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="72"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f77B" type="F77B" minOccurs="0">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">77B: Regulatory Reporting</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="77B"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="MtBag" abstract="true"/>
+   <xs:complexType name="MtField" abstract="true"/>
+   <xs:complexType name="MtFieldOption" abstract="true"/>
+   <xs:complexType name="MtMessage" abstract="true"/>
+   <xs:complexType name="MtOption" abstract="true"/>
+   <xs:complexType name="MtSequence" abstract="true"/>
+   <xs:complexType name="MtSubField" abstract="true"/>
+   <xs:complexType name="Opt_50a">
+      <xs:annotation>
+         <xs:documentation source="Name" xml:lang="EN">50a: Ordering Customer</xs:documentation>
+         <xs:appinfo>
+            <info:tag value="50a"/>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="MtOption">
+            <xs:choice>
+               <xs:element name="f50A" type="F50A">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">50A: Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="50A"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f50F" type="F50F">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">50F: Party Identifier - Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="50F"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f50K" type="F50K">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">50K: Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="50K"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:choice>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Opt_52a">
+      <xs:annotation>
+         <xs:documentation source="Name" xml:lang="EN">52a: Ordering Institution</xs:documentation>
+         <xs:appinfo>
+            <info:tag value="52a"/>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="MtOption">
+            <xs:choice>
+               <xs:element name="f52A" type="F52A">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">52A: Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="52A"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f52D" type="F52D">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">52D: Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="52D"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:choice>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Opt_53a">
+      <xs:annotation>
+         <xs:documentation source="Name" xml:lang="EN">53a: Sender Correspondent</xs:documentation>
+         <xs:appinfo>
+            <info:tag value="53a"/>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="MtOption">
+            <xs:choice>
+               <xs:element name="f53A" type="F53A">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">53A: Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="53A"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f53B" type="F53B">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">53B: Location</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="53B"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f53D" type="F53D">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">53D: Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="53D"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:choice>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Opt_54a">
+      <xs:annotation>
+         <xs:documentation source="Name" xml:lang="EN">54a: Receiver Correspondent</xs:documentation>
+         <xs:appinfo>
+            <info:tag value="54a"/>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="MtOption">
+            <xs:choice>
+               <xs:element name="f54A" type="F54A">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">54A: Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="54A"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f54B" type="F54B">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">54B: Location</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="54B"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f54D" type="F54D">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">54D: Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="54D"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:choice>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Opt_55a">
+      <xs:annotation>
+         <xs:documentation source="Name" xml:lang="EN">55a: Third Reimbursement Institution</xs:documentation>
+         <xs:appinfo>
+            <info:tag value="55a"/>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="MtOption">
+            <xs:choice>
+               <xs:element name="f55A" type="F55A">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">55A: Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="55A"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f55B" type="F55B">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">55B: Location</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="55B"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f55D" type="F55D">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">55D: Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="55D"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:choice>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Opt_56a">
+      <xs:annotation>
+         <xs:documentation source="Name" xml:lang="EN">56a: Intermediary Institution</xs:documentation>
+         <xs:appinfo>
+            <info:tag value="56a"/>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="MtOption">
+            <xs:choice>
+               <xs:element name="f56A" type="F56A">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">56A: Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="56A"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f56C" type="F56C">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">56C: Party Identifier only</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="56C"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f56D" type="F56D">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">56D: Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="56D"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:choice>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Opt_57a">
+      <xs:annotation>
+         <xs:documentation source="Name" xml:lang="EN">57a: Account With Institution</xs:documentation>
+         <xs:appinfo>
+            <info:tag value="57a"/>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="MtOption">
+            <xs:choice>
+               <xs:element name="f57A" type="F57A">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">57A: Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="57A"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f57B" type="F57B">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">57B: Location</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="57B"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f57C" type="F57C">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">57C: Party Identifier only</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="57C"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f57D" type="F57D">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">57D: Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="57D"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:choice>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="Opt_59a">
+      <xs:annotation>
+         <xs:documentation source="Name" xml:lang="EN">59a: Beneficiary Customer</xs:documentation>
+         <xs:appinfo>
+            <info:tag value="59a"/>
+         </xs:appinfo>
+      </xs:annotation>
+      <xs:complexContent>
+         <xs:extension base="MtOption">
+            <xs:choice>
+               <xs:element name="f59A" type="F59A">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">59A: Identifier Code</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="59A"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+               <xs:element name="f59" type="F59">
+                  <xs:annotation>
+                     <xs:documentation source="Name" xml:lang="EN">59 : Name and Address</xs:documentation>
+                     <xs:appinfo>
+                        <info:tag value="59"/>
+                     </xs:appinfo>
+                  </xs:annotation>
+               </xs:element>
+            </xs:choice>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+
+   <xs:simpleType name="Account34X">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="34"/>
+         <xs:pattern value="[A-Za-z0-9/\-?:().,'+  ]{1,34}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="Address4S35X">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="35"/>
+         <xs:pattern value="[A-Za-z0-9/\-\?:\(\)\.,'\+ ]{1,35}$(^[A-Za-z0-9/\-\?:\(\)\.,'\+ ]{1,35}$){0,3}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="Amount15D">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="15"/>
+         <xs:pattern value="[0-9]+,[0-9]*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="CodeBic">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="8"/>
+         <xs:maxLength value="11"/>
+         <xs:pattern value="[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}([A-Z0-9]{3})?"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="CodeBicBei">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="8"/>
+         <xs:maxLength value="11"/>
+         <xs:pattern value="[A-Z]{4}[A-Z]{2}[A-Z0-9]{2}([A-Z0-9]{3})?"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="CodeCurrencyCode">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="3"/>
+         <xs:maxLength value="3"/>
+         <xs:pattern value="[A-Z]{3}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="CodeDebitCreditIndicator">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="1"/>
+         <xs:pattern value="[CD]{1}"/>
+         <xs:enumeration value="C"/>
+         <xs:enumeration value="D"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="CodeFinBankOper">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="4"/>
+         <xs:maxLength value="4"/>
+         <xs:pattern value="[A-Z0-9]{4}"/>
+         <xs:enumeration value="CRED"/>
+         <xs:enumeration value="CRTS"/>
+         <xs:enumeration value="SPAY"/>
+         <xs:enumeration value="SPRI"/>
+         <xs:enumeration value="SSTD"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="CodeFinInstructionCode">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="4"/>
+         <xs:maxLength value="4"/>
+         <xs:pattern value="[A-Z0-9]{4}"/>
+         <xs:enumeration value="SDVA"/>
+         <xs:enumeration value="INTC"/>
+         <xs:enumeration value="REPA"/>
+         <xs:enumeration value="CORT"/>
+         <xs:enumeration value="HOLD"/>
+         <xs:enumeration value="CHQB"/>
+         <xs:enumeration value="PHOB"/>
+         <xs:enumeration value="TELB"/>
+         <xs:enumeration value="PHON"/>
+         <xs:enumeration value="TELE"/>
+         <xs:enumeration value="PHOI"/>
+         <xs:enumeration value="TELI"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="CodeFinTimeInd">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="8"/>
+         <xs:pattern value="[A-Z0-9]{1,8}"/>
+         <xs:enumeration value="CLSTIME"/>
+         <xs:enumeration value="RNCTIME"/>
+         <xs:enumeration value="SNDTIME"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="CodeFinTransCharges">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="3"/>
+         <xs:maxLength value="3"/>
+         <xs:pattern value="[A-Z]{3}"/>
+         <xs:enumeration value="BEN"/>
+         <xs:enumeration value="OUR"/>
+         <xs:enumeration value="SHA"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="CodeSign">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="1"/>
+         <xs:pattern value="[A-Za-z0-9/\-?:().,'+  ]{1}"/>
+         <xs:enumeration value="+"/>
+         <xs:enumeration value="-"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="DateTimeHHmm">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="4"/>
+         <xs:maxLength value="4"/>
+         <xs:pattern value="[0-9]{4}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="DateTimeyyMMdd">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="6"/>
+         <xs:maxLength value="6"/>
+         <xs:pattern value="[0-9]{6}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="Information30X">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="30"/>
+         <xs:pattern value="[A-Za-z0-9/\-?:().,'+  ]{1,30}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="Information4S35X">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="35"/>
+         <xs:pattern value="[A-Za-z0-9/\-\?:\(\)\.,'\+ ]{1,35}$(^[A-Za-z0-9/\-\?:\(\)\.,'\+ ]{1,35}$){0,3}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="Information6S35X">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="35"/>
+         <xs:pattern value="[A-Za-z0-9/\-\?:\(\)\.,'\+ ]{1,35}$(^[A-Za-z0-9/\-\?:\(\)\.,'\+ ]{1,35}$){0,5}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="Location35X">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="35"/>
+         <xs:pattern value="[A-Za-z0-9/\-?:().,'+  ]{1,35}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="Narrative3S35X">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="35"/>
+         <xs:pattern value="[A-Za-z0-9/\-\?:\(\)\.,'\+ ]{1,35}$(^[A-Za-z0-9/\-\?:\(\)\.,'\+ ]{1,35}$){0,2}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="PartyIdentifier34X">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="34"/>
+         <xs:pattern value="[A-Za-z0-9/\-?:().,'+  ]{1,34}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="PartyIdentifier35X">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="35"/>
+         <xs:pattern value="[A-Za-z0-9/\-?:().,'+  ]{1,35}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="Rate">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="12"/>
+         <xs:pattern value="[0-9]+,[0-9]*"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="Reference16X">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="1"/>
+         <xs:maxLength value="16"/>
+         <xs:pattern value="[A-Za-z0-9/\-?:().,'+  ]{1,16}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="Type">
+      <xs:restriction base="xs:string">
+         <xs:minLength value="3"/>
+         <xs:maxLength value="3"/>
+         <xs:pattern value="[A-Z0-9]{3}"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SwInt:ExchangeRequest xmlns:SwInt="urn:swift:snl:ns.SwInt">
+    <SwInt:Request>
+        <SwInt:RequestHeader>
+            <SwInt:Requestor>o=ombssess,o=swift</SwInt:Requestor>
+            <SwInt:Responder>ou=funds,o=rflclulx,o=swift</SwInt:Responder>
+            <SwInt:Service>swift.if.ia</SwInt:Service>
+            <SwInt:RequestType>setr.010.001.03</SwInt:RequestType>
+            <SwInt:RequestRef>00076028</SwInt:RequestRef>
+        </SwInt:RequestHeader>
+        <SwInt:RequestPayload>
+            <Ah:AppHdr xmlns:Ah="urn:swift:xsd:$ahV10">
+                <Ah:MsgRef>00076028</Ah:MsgRef>
+                <Ah:CrDate>2011-04-01T13:29:49</Ah:CrDate>
+            </Ah:AppHdr>
+            <Doc:Document xmlns:Doc="urn:swift:xsd:setr.010.001.03">
+                <Doc:SbcptOrdrV03>
+                    <Doc:MsgId>
+                        <Doc:Id>101750</Doc:Id>
+                        <Doc:CreDtTm>2011-04-01T13:30:18</Doc:CreDtTm>
+                    </Doc:MsgId>
+                    <Doc:MltplOrdrDtls>
+                        <Doc:InvstmtAcctDtls>
+                            <Doc:AcctId>
+                                <Doc:Prtry>
+                                    <Doc:Id>8619910001</Doc:Id>
+                                </Doc:Prtry>
+                            </Doc:AcctId>
+                        </Doc:InvstmtAcctDtls>
+                        <Doc:IndvOrdrDtls>
+                            <Doc:OrdrRef>101750</Doc:OrdrRef>
+                            <Doc:FinInstrmDtls>
+                                <Doc:Id>
+                                    <Doc:ISIN>LU0208853274</Doc:ISIN>
+                                </Doc:Id>
+                            </Doc:FinInstrmDtls>
+                            <Doc:GrssAmt Ccy="EUR"></Doc:GrssAmt>
+                            <Doc:PhysDlvryInd>false</Doc:PhysDlvryInd>
+                            <Doc:ReqdSttlmCcy>EUR</Doc:ReqdSttlmCcy>
+                            <Doc:ReqdNAVCcy>EUR</Doc:ReqdNAVCcy>
+                        </Doc:IndvOrdrDtls>
+                    </Doc:MltplOrdrDtls>
+                </Doc:SbcptOrdrV03>
+            </Doc:Document>
+        </SwInt:RequestPayload>
+    </SwInt:Request>
+</SwInt:ExchangeRequest>

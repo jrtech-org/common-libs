@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SwInt:ExchangeRequest xmlns:Sw="urn:swift:snl:ns.Sw" xmlns:SwInt="urn:swift:snl:ns.SwInt" xmlns:SwSec="urn:swift:snl:ns.SwSec">
+	<SwInt:Request>
+		<SwInt:RequestHeader>
+			<SwInt:Requestor>BBPACHAG</SwInt:Requestor>
+			<SwInt:Service>swift.if.ia</SwInt:Service>
+			<SwInt:RequestType>setr.004.001.03</SwInt:RequestType>
+			<SwInt:Priority>Normal</SwInt:Priority>
+			<SwInt:RequestRef>UREF#4504141882907310201</SwInt:RequestRef>
+		</SwInt:RequestHeader>
+		<SwInt:RequestPayload>
+			<Ah:AppHdr xmlns:Ah="urn:swift:xsd:$ahV10">
+				<Ah:MsgRef>APPREF#-8691093685669325067</Ah:MsgRef>
+			</Ah:AppHdr>
+			<Doc:Document xmlns:Doc="urn:swift:xsd:setr.004.001.03">
+				<Doc:RedOrdrV03>
+					<Doc:MsgId>
+						<Doc:Id>jru1903201201</Doc:Id>
+						<Doc:CreDtTm>2012-03-19T08:37:09.894Z</Doc:CreDtTm>
+					</Doc:MsgId>
+					<Doc:MltplOrdrDtls>
+						<Doc:CxlRght>VALI</Doc:CxlRght>
+						<Doc:InvstmtAcctDtls>
+							<Doc:AcctId>
+								<Doc:Prtry>
+									<Doc:Id>jruac001</Doc:Id>
+								</Doc:Prtry>
+							</Doc:AcctId>
+						</Doc:InvstmtAcctDtls>
+						<Doc:IndvOrdrDtls>
+							<Doc:OrdrRef>jru1903201201</Doc:OrdrRef>
+							<Doc:FinInstrmDtls>
+								<Doc:Id>
+									<Doc:ISIN>BBPN001</Doc:ISIN>
+								</Doc:Id>
+							</Doc:FinInstrmDtls>
+							<Doc:UnitsNb>
+								<Doc:Unit>1000</Doc:Unit>
+							</Doc:UnitsNb>
+							<Doc:PhysDlvryInd>false</Doc:PhysDlvryInd>
+						</Doc:IndvOrdrDtls>
+					</Doc:MltplOrdrDtls>
+				</Doc:RedOrdrV03>
+			</Doc:Document>
+		</SwInt:RequestPayload>
+	</SwInt:Request>
+</SwInt:ExchangeRequest>

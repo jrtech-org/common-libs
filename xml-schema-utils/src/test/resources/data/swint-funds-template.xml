@@ -1,0 +1,44 @@
+<?xml version = "1.0"?>
+<SwInt:ExchangeRequest xmlns:Sw="urn:swift:snl:ns.Sw" xmlns:SwInt="urn:swift:snl:ns.SwInt" xmlns:SwSec="urn:swift:snl:ns.SwSec">
+    <SwSec:AuthorisationContext>
+        <SwSec:UserDN></SwSec:UserDN>
+    </SwSec:AuthorisationContext>
+    <SwInt:Request>
+        <SwInt:RequestControl>
+            <Sw:ProductList>
+                <Sw:ProductInfo>
+                    <Sw:VendorName></Sw:VendorName>
+                    <Sw:ProductName></Sw:ProductName>
+                    <Sw:ProductVersion></Sw:ProductVersion>
+                </Sw:ProductInfo>
+            </Sw:ProductList>
+            <SwInt:RequestCrypto></SwInt:RequestCrypto>
+            <SwInt:NRIndicator></SwInt:NRIndicator>
+            <SwInt:DeliveryCtrl>
+                <SwInt:DeliveryMode></SwInt:DeliveryMode>
+                <SwInt:NotifQueue></SwInt:NotifQueue>
+                <Sw:DeliveryNotif></Sw:DeliveryNotif>
+            </SwInt:DeliveryCtrl>
+        </SwInt:RequestControl>
+        <Sw:RequestE2EControl>
+            <Sw:MsgId></Sw:MsgId>
+            <Sw:CreationTime></Sw:CreationTime>
+            <Sw:PDIndication></Sw:PDIndication>
+        </Sw:RequestE2EControl>
+        <SwInt:RequestHeader>
+            <SwInt:Requestor></SwInt:Requestor>
+            <SwInt:Responder></SwInt:Responder>
+            <SwInt:Service></SwInt:Service>
+            <SwInt:RequestType></SwInt:RequestType>
+            <SwInt:Priority></SwInt:Priority>
+            <SwInt:RequestRef></SwInt:RequestRef>
+        </SwInt:RequestHeader>
+        <SwInt:RequestPayload>
+            <Ah:AppHdr xmlns:Ah="urn:swift:xsd:$ahV10">
+                <Ah:MsgRef></Ah:MsgRef>
+                <Ah:CrDate></Ah:CrDate>
+            </Ah:AppHdr>
+            ${Document}
+        </SwInt:RequestPayload>
+    </SwInt:Request>
+</SwInt:ExchangeRequest>

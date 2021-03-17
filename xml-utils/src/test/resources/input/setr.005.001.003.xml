@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SwInt:ExchangeRequest xmlns:Sw="urn:swift:snl:ns.Sw"
+  xmlns:SwInt="urn:swift:snl:ns.SwInt" xmlns:SwSec="urn:swift:snl:ns.SwSec">
+  <SwInt:Request>
+    <SwInt:RequestHeader>
+      <SwInt:Requestor>o=ptsachba,o=swift</SwInt:Requestor>
+      <SwInt:RequestType>setr.005.001.03</SwInt:RequestType>
+    </SwInt:RequestHeader>
+    <SwInt:RequestPayload>
+      <Ah:AppHdr xmlns:Ah="urn:swift:xsd:$ahV10">
+        <Ah:CrDate>2012-05-09T10:04:06.307+01:00</Ah:CrDate>
+      </Ah:AppHdr>
+      <Doc:Document xmlns:Doc="urn:swift:xsd:setr.005.001.03">
+        <Doc:RedOrdrCxlReqV03>
+          <Doc:CxlByOrdrDtls>
+            <Doc:MltplOrdrDtls>
+              <Doc:PlcOfTrad>
+                <Doc:Xchg>&amp;&amp;</Doc:Xchg>
+              </Doc:PlcOfTrad>
+            </Doc:MltplOrdrDtls>
+          </Doc:CxlByOrdrDtls>
+        </Doc:RedOrdrCxlReqV03>
+      </Doc:Document>
+    </SwInt:RequestPayload>
+  </SwInt:Request>
+</SwInt:ExchangeRequest>
