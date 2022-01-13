@@ -24,8 +24,9 @@ import java.util.List;
 import java.util.concurrent.ConcurrentNavigableMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 
-import org.apache.log4j.Logger;
 import org.jrtech.common.xmlutils.XmlUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -47,7 +48,7 @@ public class PreferenceLoader {
 
 	public static final String URL_PREFIX_CLASSPATH = "classpath:";
 
-	private static Logger log = Logger.getLogger(PreferenceLoader.class);
+	private static Logger log = LoggerFactory.getLogger(PreferenceLoader.class);
 
 	private static final ConcurrentNavigableMap<String, Class<? extends PreferenceConverter<? extends Preference>>> concretePreferenceConverterMap = new ConcurrentSkipListMap<>();
 

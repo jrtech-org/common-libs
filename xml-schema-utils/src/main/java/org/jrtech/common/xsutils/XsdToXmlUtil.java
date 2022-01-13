@@ -25,8 +25,9 @@ import java.util.Map;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.SAXParserFactory;
 
-import org.apache.log4j.Logger;
 import org.jrtech.common.xmlutils.XmlUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -47,7 +48,7 @@ import com.sun.xml.xsom.parser.XSOMParser;
 
 public class XsdToXmlUtil {
 
-	private static final Logger log = Logger.getLogger(XsdToXmlUtil.class);
+	private static final Logger log = LoggerFactory.getLogger(XsdToXmlUtil.class);
 
 	private XSSchemaSet schemaSet = null;
 

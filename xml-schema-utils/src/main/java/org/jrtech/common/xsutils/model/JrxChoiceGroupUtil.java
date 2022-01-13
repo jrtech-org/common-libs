@@ -16,7 +16,8 @@
  */
 package org.jrtech.common.xsutils.model;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.sun.xml.xsom.XSComplexType;
 import com.sun.xml.xsom.XSContentType;
@@ -26,7 +27,7 @@ import com.sun.xml.xsom.XSTerm;
 
 public class JrxChoiceGroupUtil {
 	
-	private static final Logger log = Logger.getLogger(JrxChoiceGroupUtil.class);
+	private static final Logger log = LoggerFactory.getLogger(JrxChoiceGroupUtil.class);
 
     public static JrxElement.ChoiceDefinedLocationCategory identifyChoiceLocationCategory(JrxElement jrxElement) {
         if (jrxElement == null || jrxElement.getChildrenBlock() == null) {
