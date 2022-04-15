@@ -59,7 +59,7 @@ public class TestCaching {
 	}
 	
 	@Test
-	public void checkingKeyExistence() throws InterruptedException {
+	public void checkingKeyExistenceAfterEviction() throws InterruptedException {
 		getCache().invalidateAll();
 		int sleepTime = 100;
 		LOGGER.info("Check Eviction");
@@ -77,9 +77,13 @@ public class TestCaching {
 		checkValues[1] = new String[] {"004", null};
 		checkValues[checkValues.length - 1] = new String[] {"002", null};
 
-		checkKeys(checkValues);
+		for (String[] checkValueEntry : checkValues) {
+			String checkKey = checkValueEntry[0];
+			boolean expectedFlag = checkValueEntry[1] != null;
+			boolean actualFlag = CacheUtil.hasKey(getCache(), checkKey);
+			Assert.assertTrue("Existance of key: [" + checkKey + "] should be: ["+ expectedFlag +"], but ["+ actualFlag +"]", expectedFlag == actualFlag);
+		}
 	}
-
 
 	private void checkValues(String[][] checkValues) {
 		LOGGER.info("Cache size: " + getCache().size());
@@ -94,23 +98,6 @@ public class TestCaching {
 			} catch (Exception e) {
 				LOGGER.error("[ERROR]: " + e.getMessage());
 				Assert.fail();
-			}
-		}
-	}
-	
-	private void checkKeys(String[][] checkValues) {
-		LOGGER.info("Cache size: " + getCache().size());
-
-		for (String[] checkValueEntry : checkValues) {
-			String checkKey = checkValueEntry[0];
-			String expectedValue = checkValueEntry[1];
-			try {
-				String actualValue = getCache().getIfPresent(checkKey);
-				Assert.assertEquals("Check value failure. [EXPECTED/ACTUAL]: [" + expectedValue + "/" + actualValue + "]", expectedValue, actualValue);
-				LOGGER.info(checkKey + " -> '" + actualValue + "'");
-			} catch (Exception e) {
-				LOGGER.error("[ERROR]: " + e.getMessage());
-				Assert.fail(e.getMessage());
 			}
 		}
 	}
