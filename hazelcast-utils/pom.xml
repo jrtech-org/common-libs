@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.jrtech.common</groupId>
@@ -20,7 +19,7 @@
 		<commons-io.version>2.8.0</commons-io.version>
 
 		<junit.version>4.13.2</junit.version>
-        <logback.version>1.2.10</logback.version>
+		<logback.version>1.2.10</logback.version>
 	</properties>
 
 	<licenses>
@@ -29,31 +28,39 @@
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
 		</license>
 	</licenses>
-	
+
 	<developers>
 		<developer>
 			<id>juminrubin</id>
 			<name>Jumin Rubin</name>
 			<email>juminrubin@gmail.com</email>
+			<organization>JRTech</organization>
+			<organizationUrl>http://www.jrtech.org</organizationUrl>
 		</developer>
 	</developers>
 
-	<dependencies>
-        <!-- Libraries for Testing purpose -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
+	<scm>
+		<connection>scm:git:git://github.com/jrtech-org/common-libs.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/jrtech-org/common-libs.git</developerConnection>
+		<url>git@github.com:/jrtech-org/common-libs.git</url>
+	</scm>
 
-        <!-- Default 3rd Party Libraries for Logging -->
-        <dependency>
+	<dependencies>
+		<!-- Libraries for Testing purpose -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Default 3rd Party Libraries for Logging -->
+		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.jrtech.common</groupId>
 			<artifactId>lang-utils</artifactId>
@@ -73,7 +80,7 @@
 			<version>${hazelcast.version}</version>
 		</dependency>
 
-<!-- 		<dependency>
+		<!-- 		<dependency>
 			<groupId>com.hazelcast</groupId>
 			<artifactId>hazelcast-client</artifactId>
 			<version>${hazelcast.version}</version>
@@ -81,4 +88,22 @@
 
 	</dependencies>
 
+	<profiles>
+		<profile>
+			<id>github</id>
+			<activation>
+				<property>
+					<name>useGitHubPackages</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<distributionManagement>
+				<repository>
+					<id>github</id>
+					<name>GitHub Packages</name>
+					<url>https://maven.pkg.github.com/jrtech-org/common-libs</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+	</profiles>
 </project>

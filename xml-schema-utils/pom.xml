@@ -34,8 +34,16 @@
 			<id>juminrubin</id>
 			<name>Jumin Rubin</name>
 			<email>juminrubin@gmail.com</email>
+			<organization>JRTech</organization>
+			<organizationUrl>http://www.jrtech.org</organizationUrl>
 		</developer>
 	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com/jrtech-org/common-libs.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/jrtech-org/common-libs.git</developerConnection>
+		<url>git@github.com:/jrtech-org/common-libs.git</url>
+	</scm>
 
 	<dependencies>
         <!-- Libraries for Testing purpose -->
@@ -81,4 +89,22 @@
 
 	</dependencies>
 
+	<profiles>
+		<profile>
+			<id>github</id>
+			<activation>
+				<property>
+					<name>useGitHubPackages</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<distributionManagement>
+				<repository>
+					<id>github</id>
+					<name>GitHub Packages</name>
+					<url>https://maven.pkg.github.com/jrtech-org/common-libs</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+	</profiles>
 </project>
