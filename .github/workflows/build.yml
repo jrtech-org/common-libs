@@ -5,9 +5,13 @@ name: Build
 
 on:
   push:
-    branches: [ develop ]
+    branches:
+      - develop
+    paths-ignore:
+      - '/.github/workflows/**'
   pull_request:
-    branches: [ develop ]
+    branches:
+      - develop
 
 jobs:
   build:
