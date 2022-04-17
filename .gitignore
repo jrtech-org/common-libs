@@ -7,3 +7,7 @@ target/
 .DS_Store
 .idea
 *.iml
+.logs/
+.logs/*
+.vscode/
+.vscode/*
