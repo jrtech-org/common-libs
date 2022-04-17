@@ -9,3 +9,5 @@ target/
 *.iml
 .logs/
 .logs/*
+.vscode/
+.vscode/*
