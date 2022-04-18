@@ -4,7 +4,7 @@
 
     <groupId>org.jrtech.common</groupId>
     <artifactId>common-libs</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <description>Collection of Java extension Libraries</description>
