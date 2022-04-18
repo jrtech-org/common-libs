@@ -1,4 +1,4 @@
-name: Release Version
+name: Build Main # Release Version
 
 on:
   push:
@@ -23,27 +23,27 @@ jobs:
       - name: Build and Test SNAPSHOT
         run: mvn -B clean package test --file pom.xml
 
-      - name: Increment Version
-        run: |
-          ./mvnw build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.nextIncrementalVersion} versions:commit
-          git config user.name "Jumin Rubin"
-          git config user.email juminrubin@gmail.com
-          git add .
-          git commit -m "updated version in pom.xml"
-          git push
-
-      - name: Create Git Tag
-        run: |
-          export version=$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout')
-          git config user.name "Jumin Rubin"
-          git config user.email juminrubin@gmail.com
-          git tag -a $version -m "$version"
-          git push origin $version
-
-      - name: Build release version with Maven
-        run: mvn -B clean package --file pom.xml
-        
-      - name: Deploy to GitHub repo
-        run: mvn --batch-mode -DuseGitHubPackages=true deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
+      #- name: Increment Version
+      #  run: |
+      #    mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.incrementalVersion} versions:commit
+      #    git config user.name "Jumin Rubin"
+      #    git config user.email juminrubin@gmail.com
+      #    git add .
+      #    git commit -m "updated version in pom.xml"
+      #    git push
+#
+#      - name: Create Git Tag
+#        run: |
+#          export version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+#          git config user.name "Jumin Rubin"
+#          git config user.email juminrubin@gmail.com
+#          git tag -a v$version -m "v$version"
+#          git push origin $version
+#
+#      - name: Build release version with Maven
+#        run: mvn -B clean package --file pom.xml
+#        
+#      - name: Deploy to GitHub repo
+#        run: mvn --batch-mode -DuseGitHubPackages=true deploy
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.DEPLOY_GITHUB_TOKEN }}
