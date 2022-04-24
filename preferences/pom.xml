@@ -83,8 +83,8 @@
 			<distributionManagement>
 				<repository>
 					<id>github</id>
-					<name>GitHub Packages</name>
-					<url>https://maven.pkg.github.com/jrtech-org/common-libs</url>
+					<name>JRTech GitHub Packages</name>
+					<url>https://maven.pkg.github.com/jrtech-org</url>
 				</repository>
 			</distributionManagement>
 		</profile>
