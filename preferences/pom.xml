@@ -73,4 +73,26 @@
 			<version>${commons-lang3.version}</version>
 		</dependency>
 	</dependencies>
+<<<<<<< HEAD
+=======
+
+	<profiles>
+		<profile>
+			<id>github</id>
+			<activation>
+				<property>
+					<name>useGitHubPackages</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<distributionManagement>
+				<repository>
+					<id>github</id>
+					<name>JRTech GitHub Packages</name>
+					<url>https://maven.pkg.github.com/jrtech-org</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+	</profiles>
+>>>>>>> 5bb053f54129b77a9d70b0793734927d6768b97b
 </project>
