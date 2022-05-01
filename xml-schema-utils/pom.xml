@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-   	<groupId>org.jrtech.common</groupId>
+	<parent>
+		<groupId>org.jrtech.common</groupId>
+		<artifactId>common-libs</artifactId>
+		<version>2.0.2-SNAPSHOT</version>
+	</parent>
+
+	<groupId>org.jrtech.common</groupId>
 	<artifactId>xml-schema-utils</artifactId>
-	<version>2.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
+	<name>XML Schema Processing Utilities</name>
 	<description>Collection of Java XML Schema processing utility classes</description>
 
 	<properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        
-        <commons-lang3.version>3.12.0</commons-lang3.version>
+		<commons-lang3.version>3.12.0</commons-lang3.version>
 		<guava.version>30.1-jre</guava.version>
-        <junit.version>4.13.2</junit.version>
-        <logback.version>1.2.10</logback.version>
 		<xsom.version>20140925</xsom.version>
 	</properties>
+
+    <organization>
+        <name>JRTech</name>
+        <url>http://www.jrtech.org</url>
+    </organization>
 
 	<licenses>
 		<license>
@@ -28,7 +32,7 @@
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
 		</license>
 	</licenses>
-	
+
 	<developers>
 		<developer>
 			<id>juminrubin</id>
@@ -44,29 +48,27 @@
 		<developerConnection>scm:git:ssh://git@github.com/jrtech-org/common-libs.git</developerConnection>
 		<url>git@github.com:/jrtech-org/common-libs.git</url>
 	</scm>
-
+	
 	<dependencies>
-        <!-- Libraries for Testing purpose -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
+		<!-- Libraries for Testing purpose -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 
-        <!-- Default 3rd Party Libraries for Logging -->
+		<!-- Default 3rd Party Libraries for Logging -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.jrtech.common</groupId>
 			<artifactId>xml-utils</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-<!-- 
+		<!-- 
 		<dependency>
 			<groupId>org.jrtech.common</groupId>
 			<artifactId>ehcache-utils</artifactId>
@@ -75,36 +77,17 @@
 -->
 
 		<!-- 3rd Party libraries -->
-        <dependency>
-            <groupId>com.sun.xsom</groupId>
-            <artifactId>xsom</artifactId>
-            <version>${xsom.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>com.sun.xsom</groupId>
+			<artifactId>xsom</artifactId>
+			<version>${xsom.version}</version>
+		</dependency>
 
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
 
 	</dependencies>
-
-	<profiles>
-		<profile>
-			<id>github</id>
-			<activation>
-				<property>
-					<name>useGitHubPackages</name>
-					<value>true</value>
-				</property>
-			</activation>
-			<distributionManagement>
-				<repository>
-					<id>github</id>
-					<name>GitHub Packages</name>
-					<url>https://maven.pkg.github.com/jrtech-org/common-libs</url>
-				</repository>
-			</distributionManagement>
-		</profile>
-	</profiles>
 </project>
