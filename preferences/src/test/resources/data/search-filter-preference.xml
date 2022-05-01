@@ -46,8 +46,8 @@
                 </listExpression>
             </andExpression>
         </searchCriteria>
-        <searchResult xmlns="http://www.jrtech.org/fms/config/search-result">
-            <object>org.jrtech.fms.lib.msg.Message</object>
+        <searchResult xmlns="http://www.jrtech.org/product/config/search-result">
+            <object>org.jrtech.product.lib.msg.Message</object>
             <columns>
                 <column order="0" visible="true" name="name" />
                 <column order="1" visible="false" name="size" />
@@ -69,8 +69,8 @@
                 </listExpression>
             </andExpression>
         </searchCriteria>
-        <searchResult xmlns="http://www.jrtech.org/fms/config/search-result">
-            <object>org.jrtech.fms.lib.msg.Message</object>
+        <searchResult xmlns="http://www.jrtech.org/product/config/search-result">
+            <object>org.jrtech.product.lib.msg.Message</object>
             <columns>
                 <column order="0" visible="true" name="name" />
                 <column order="1" visible="false" name="size" />

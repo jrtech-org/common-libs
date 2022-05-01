@@ -1,4 +1,4 @@
-<documentMt103 xmlns="urn:ch:bbp:fms:meta:messaging:swift:fin:mt103">
+<documentMt103 xmlns="urn:ch:acme:product:meta:messaging:swift:fin:mt103">
     <mt103>
         <f20>
             <reference>jru2013050301</reference>

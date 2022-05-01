@@ -17,8 +17,9 @@
 package org.jrtech.common.xmlutils;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.NoSuchElementException;
+import java.util.List;
 
 import javax.xml.XMLConstants;
 import javax.xml.namespace.NamespaceContext;
@@ -68,56 +69,13 @@ public class StringArrayNamespaceContext implements NamespaceContext, Serializab
 	 * @see javax.xml.namespace.NamespaceContext#getPrefixes(java.lang.String)
 	 */
 	@Override
-	public Iterator<String[]> getPrefixes(String namespaceURI) {
-		return new ArrayIterator<String[]>(namespaceArray);
+	public Iterator<String> getPrefixes(String namespaceURI) {
+		List<String> prefixList = new ArrayList<>();
+		for (int i = 0; i < namespaceArray.length; i++) {
+			if (namespaceArray.equals(namespaceArray[i][1]))
+				prefixList.add(namespaceArray[i][0]);
+		}
+		return prefixList.iterator();
 	}
 
-	private class ArrayIterator<T> implements Iterator<T>, Serializable, Cloneable {
-
-		private static final long serialVersionUID = -1869785991513310474L;
-
-		private final T[] array;
-
-		private int index;
-
-		private ArrayIterator(T[] array) {
-			if (array == null)
-				throw new NullPointerException("Empty array assigned for ArrayIterator.");
-
-			this.array = array;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see java.util.Iterator#hasNext()
-		 */
-		@Override
-		public boolean hasNext() {
-			return index < array.length;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see java.util.Iterator#next()
-		 */
-		@Override
-		public T next() {
-			if (!hasNext())
-				throw new NoSuchElementException();
-
-			return array[index++];
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see java.util.Iterator#remove()
-		 */
-		@Override
-		public void remove() {
-			throw new UnsupportedOperationException();
-		}
-	}
 }

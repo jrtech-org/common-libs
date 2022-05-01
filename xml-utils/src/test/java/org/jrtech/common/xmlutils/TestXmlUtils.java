@@ -42,13 +42,15 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import ch.qos.logback.core.joran.spi.XMLUtil;
+
 import org.junit.Assert;
 
 public class TestXmlUtils {
 	private static final Logger log = LoggerFactory.getLogger(TestXmlUtils.class);
 
 	static final String XML_TIME_PATTERN = "HH:mm:ss.SSSZ";
-	
+
 	private static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
 
 	private Calendar calendar;
@@ -66,7 +68,7 @@ public class TestXmlUtils {
 			URL url = getClass().getResource("/input/choice1.xml");
 			Document xmlDoc = XmlUtils.openDocumentNS(url);
 			Node targetNode = XmlUtils.getNodeByXPath(xmlDoc, new String[][] { { "doc",
-			        "urn:test:xsd:aaachoice.001.001.01" } }, "//doc:AcctSvcr");
+					"urn:test:xsd:aaachoice.001.001.01" } }, "//doc:AcctSvcr");
 			Assert.assertNotNull(targetNode);
 		} catch (Exception e) {
 			Assert.fail();
@@ -76,10 +78,10 @@ public class TestXmlUtils {
 	@Test
 	public void testGetNodeByXPathByInvalidNamespaceDoc() {
 		String[] xpathArray = new String[] { "SwInt:HandleRequest", "/SwInt:HandleRequest", "//SwInt:RequestPayload",
-		        "SwInt:HandleRequest//SwInt:RequestPayload", "//SwInt:RequestHandle",
-		        "SwInt:HandleRequest/SwInt:RequestHandle/SwInt:RequestPayload", "HandleRequest", "/HandleRequest",
-		        "//RequestPayload", "HandleRequest//RequestPayload", "//RequestHandle",
-		        "HandleRequest/RequestHandle/RequestPayload" };
+				"SwInt:HandleRequest//SwInt:RequestPayload", "//SwInt:RequestHandle",
+				"SwInt:HandleRequest/SwInt:RequestHandle/SwInt:RequestPayload", "HandleRequest", "/HandleRequest",
+				"//RequestPayload", "HandleRequest//RequestPayload", "//RequestHandle",
+				"HandleRequest/RequestHandle/RequestPayload" };
 		try {
 			URL url = getClass().getResource("/input/invalid-namespace1.xml");
 			Document xmlDoc = XmlUtils.openDocument(url);
@@ -100,9 +102,10 @@ public class TestXmlUtils {
 	@Test
 	public void testGetPath() {
 		try {
-		    InputStream is = getClass().getResourceAsStream("/data/setr.010.xml");
+			InputStream is = getClass().getResourceAsStream("/data/setr.010.xml");
 			Document xmlDoc = XmlUtils.createDocumentNS(is);
-			Node targetNode = XmlUtils.getNodeByXPath(xmlDoc, new String[][] { { "Doc", "urn:swift:xsd:setr.010.001.03" } } ,"//Doc:IndvOrdrDtls/Doc:GrssAmt");
+			Node targetNode = XmlUtils.getNodeByXPath(xmlDoc, new String[][] { { "Doc", "urn:swift:xsd:setr.010.001.03" } },
+					"//Doc:IndvOrdrDtls/Doc:GrssAmt");
 			Node[] nodePath = XmlUtils.getPath(targetNode);
 			for (Node node : nodePath) {
 				System.out.println(node.getNodeName() + " (" + getNodeIndex(node) + ")");
@@ -112,19 +115,19 @@ public class TestXmlUtils {
 		}
 	}
 
-    @Test
-    public void testGetAttributeNode() {
-        try {
-            InputStream is = getClass().getResourceAsStream("/data/setr.010.xml");
-            String[][] namespacesDef = new String[][] { { "Doc", "urn:swift:xsd:setr.010.001.03" } };
-            Document xmlDoc = XmlUtils.createDocumentNS(is);
-            
-            Node targetNode = XmlUtils.getNodeByXPath(xmlDoc, namespacesDef,"//Doc:IndvOrdrDtls/Doc:GrssAmt/@Ccy");
-            System.out.println(targetNode.getNodeName());
-        } catch (Exception e) {
-            Assert.fail();
-        }
-    }
+	@Test
+	public void testGetAttributeNode() {
+		try {
+			InputStream is = getClass().getResourceAsStream("/data/setr.010.xml");
+			String[][] namespacesDef = new String[][] { { "Doc", "urn:swift:xsd:setr.010.001.03" } };
+			Document xmlDoc = XmlUtils.createDocumentNS(is);
+
+			Node targetNode = XmlUtils.getNodeByXPath(xmlDoc, namespacesDef, "//Doc:IndvOrdrDtls/Doc:GrssAmt/@Ccy");
+			System.out.println(targetNode.getNodeName());
+		} catch (Exception e) {
+			Assert.fail();
+		}
+	}
 
 	@Test
 	public void testGetElementByPath() {
@@ -230,7 +233,7 @@ public class TestXmlUtils {
 		log.debug("sign: " + tzDiffSign + "; hour: " + tzDiffHour + "; minute: " + tzDiffMinute);
 
 		String javaFormattedTime = xmlFormattedTime.substring(0, xmlFormattedTime.length() - 3)
-		        + xmlFormattedTime.substring(xmlFormattedTime.length() - 2);
+				+ xmlFormattedTime.substring(xmlFormattedTime.length() - 2);
 		log.debug("Java formatted text: " + javaFormattedTime);
 		SimpleDateFormat sdf = new SimpleDateFormat(XML_TIME_PATTERN);
 		Date date = sdf.parse(javaFormattedTime);
@@ -257,15 +260,15 @@ public class TestXmlUtils {
 		// formattedXmlString = formattedXmlString.replaceAll("\n", systemNewLine);
 		formattedXmlString = XmlUtils.prettyFormatSAX(formattedXmlString, 4);
 		String expectedOutput = "<root>" + systemNewLine + "    <child>aaa</child>" + systemNewLine + "    <child />"
-		        + systemNewLine + "</root>";
+				+ systemNewLine + "</root>";
 		Assert.assertEquals(expectedOutput, formattedXmlString);
 
 		xmlStringInput = "<Doc:root xmlns:Doc=\"urn:swift:xsd:camt.044.001.02\">" + systemNewLine
-		        + "        <Doc:child>aaa</Doc:child><Doc:child/></Doc:root>";
+				+ "        <Doc:child>aaa</Doc:child><Doc:child/></Doc:root>";
 		formattedXmlString = XmlUtils.nodeToString(XmlUtils.createDocument(xmlStringInput), true);
 		formattedXmlString = XmlUtils.prettyFormatSAX(formattedXmlString, 2);
 		expectedOutput = "<Doc:root xmlns:Doc=\"urn:swift:xsd:camt.044.001.02\">" + systemNewLine
-		        + "  <Doc:child>aaa</Doc:child>" + systemNewLine + "  <Doc:child />" + systemNewLine + "</Doc:root>";
+				+ "  <Doc:child>aaa</Doc:child>" + systemNewLine + "  <Doc:child />" + systemNewLine + "</Doc:root>";
 		Assert.assertEquals(expectedOutput, formattedXmlString);
 	}
 
@@ -290,7 +293,7 @@ public class TestXmlUtils {
 				XmlUtils.prettyFormat(inputString, 4, true);
 				long endTime = System.nanoTime();
 				sw[i][0] = endTime - startTime;
-				
+
 				// OLD pretty formatter -> With processing instructions
 				startTime = System.nanoTime();
 				XmlUtils.prettyFormat(inputString, 4, false);
@@ -302,32 +305,37 @@ public class TestXmlUtils {
 				XmlUtils.prettyFormatSAX(inputString, 4, true);
 				endTime = System.nanoTime();
 				sw[i][2] = endTime - startTime;
-				
+
 				// NEW pretty formatter -> With processing instructions
 				startTime = System.nanoTime();
 				XmlUtils.prettyFormatSAX(inputString, 4, false);
 				endTime = System.nanoTime();
 				sw[i][3] = endTime - startTime;
-				
+
 				// NEW pretty formatter 2 -> Omit processing instructions
 				InputStream is = IOUtils.toInputStream(inputString, DEFAULT_CHARSET);
 				startTime = System.nanoTime();
 				XmlUtils.prettyFormatSAX(is, 4, true);
 				endTime = System.nanoTime();
 				sw[i][4] = endTime - startTime;
-				
+
 				// NEW pretty formatter 2 -> With processing instructions
 				is.reset();
 				startTime = System.nanoTime();
 				XmlUtils.prettyFormatSAX(is, 4, false);
 				endTime = System.nanoTime();
 				sw[i][5] = endTime - startTime;
-				if (is != null) try { is.close(); } catch (IOException e) {};
+				if (is != null)
+					try {
+						is.close();
+					} catch (IOException e) {
+					}
+				;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		// print statistics
 		Long[] sumTimes = new Long[typeCount];
 		for (int i = 0; i < sw.length; i++) {
@@ -336,14 +344,14 @@ public class TestXmlUtils {
 					sumTimes[j] = 0L;
 				}
 				sumTimes[j] += sw[i][j];
-            }
-        }
+			}
+		}
 		NumberFormat nf = NumberFormat.getNumberInstance(Locale.ENGLISH);
 		System.out.println("Count: " + nf.format(count));
 		for (int i = 0; i < sumTimes.length; i++) {
 			System.out.println("Total times #" + i + ": " + StringUtils.leftPad(nf.format(sumTimes[i]), 18) + " ns.");
 			System.out.println("Avg. times  #" + i + ": " + StringUtils.leftPad(nf.format(sumTimes[i] / count), 18) + " ns.");
-        }
+		}
 	}
 
 	@Test
@@ -353,16 +361,16 @@ public class TestXmlUtils {
 
 		String formattedXmlString = XmlUtils.prettyFormatSAX(xmlStringInput, 2);
 		String expectedOutput = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<root>" + systemNewLine
-		        + "  <child>aaa</child>" + systemNewLine + "  <child />" + systemNewLine + "</root>";
+				+ "  <child>aaa</child>" + systemNewLine + "  <child />" + systemNewLine + "</root>";
 		System.out.println("expectedOutput:\n" + expectedOutput + "\n" + "formattedXmlString:\n" + formattedXmlString);
 		Assert.assertEquals(expectedOutput, formattedXmlString);
 
 		System.out.println();
 		xmlStringInput = "<Doc:root xmlns:Doc=\"urn:swift:xsd:camt.044.001.02\">" + systemNewLine
-		        + "        <Doc:child>aaa</Doc:child><Doc:child/></Doc:root>";
+				+ "        <Doc:child>aaa</Doc:child><Doc:child/></Doc:root>";
 		formattedXmlString = XmlUtils.prettyFormatSAX(xmlStringInput, 2);
 		expectedOutput = "<Doc:root xmlns:Doc=\"urn:swift:xsd:camt.044.001.02\">" + systemNewLine
-		        + "  <Doc:child>aaa</Doc:child>" + systemNewLine + "  <Doc:child />" + systemNewLine + "</Doc:root>";
+				+ "  <Doc:child>aaa</Doc:child>" + systemNewLine + "  <Doc:child />" + systemNewLine + "</Doc:root>";
 		System.out.println("expectedOutput:\n" + expectedOutput + "\n" + "formattedXmlString:\n" + formattedXmlString);
 		Assert.assertEquals(expectedOutput, formattedXmlString);
 
@@ -370,7 +378,7 @@ public class TestXmlUtils {
 		xmlStringInput = "<root><child>aaa</child><child/></root>";
 		formattedXmlString = XmlUtils.prettyFormatSAX(xmlStringInput, 2);
 		expectedOutput = "<root>" + systemNewLine + "  <child>aaa</child>" + systemNewLine + "  <child />"
-		        + systemNewLine + "</root>";
+				+ systemNewLine + "</root>";
 		System.out.println("expectedOutput:\n" + expectedOutput + "\n" + "formattedXmlString:\n" + formattedXmlString);
 		Assert.assertEquals(expectedOutput, formattedXmlString);
 	}
@@ -393,7 +401,7 @@ public class TestXmlUtils {
 
 	@Test
 	public void testDocumentWithoutNamespaceCreationAndQuery() throws Exception {
-		String namespaceUri = "urn:bbp:test:xsd";
+		String namespaceUri = "urn:acme:test:xsd";
 		String namespacePrefix = "prefix";
 		String initialXmlString = "<root xmlns=\"" + namespaceUri + "\"><book /></root>";
 
@@ -413,7 +421,7 @@ public class TestXmlUtils {
 // @formatter:off
 //    @Test
 //    public void testDocumentWithoutNamespaceCreationAndQuery2() throws Exception {
-//    	String namespaceUri = "urn:bbp:test:xsd";
+//    	String namespaceUri = "urn:acme:test:xsd";
 //    	String namespacePrefix = "prefix";
 //    	String initialXmlString = "<" + namespacePrefix + ":root xmlns:" + namespacePrefix + "=\"" + namespaceUri + "\"><" + namespacePrefix + ":book /></" + namespacePrefix + ":root>";
 //    	
@@ -434,7 +442,7 @@ public class TestXmlUtils {
 
 	@Test
 	public void testDocumentWithNamespaceCreationAndQuery() throws Exception {
-		String namespaceUri = "urn:bbp:test:xsd";
+		String namespaceUri = "urn:acme:test:xsd";
 		String namespacePrefix = "prefix";
 		String initialXmlString = "<root xmlns=\"" + namespaceUri + "\"><book /></root>";
 
@@ -454,10 +462,10 @@ public class TestXmlUtils {
 
 	@Test
 	public void testDocumentWithNamespaceCreationAndQuery2() throws Exception {
-		String namespaceUri = "urn:bbp:test:xsd";
+		String namespaceUri = "urn:acme:test:xsd";
 		String namespacePrefix = "prefix";
 		String initialXmlString = "<" + namespacePrefix + ":root xmlns:" + namespacePrefix + "=\"" + namespaceUri
-		        + "\"><" + namespacePrefix + ":book /></" + namespacePrefix + ":root>";
+				+ "\"><" + namespacePrefix + ":book /></" + namespacePrefix + ":root>";
 
 		Document xmlDoc = XmlUtils.createDocumentNS(initialXmlString);
 		Element xmlBookElement = (Element) XmlUtils.getNodeByXPath(xmlDoc, "//" + namespacePrefix + ":book");
@@ -476,32 +484,55 @@ public class TestXmlUtils {
 	@Test
 	public void testNamespacePrefix() throws Exception {
 		// Without prefix
-		String namespaceUri = "urn:bbp:test:xsd";
+		String namespaceUri = "urn:jrtech:test:xsd";
 		String initialXmlString = "<root xmlns=\"" + namespaceUri + "\"><book /></root>";
 		Document xmlDoc = XmlUtils.createDocumentNS(initialXmlString);
 		Element xmlRootElement = xmlDoc.getDocumentElement();
 		Assert.assertNull(xmlRootElement.getPrefix());
 
-		// With "" prefix
-		initialXmlString = "<root xmlns:=\"" + namespaceUri + "\"><book /></root>";
-		xmlDoc = XmlUtils.createDocumentNS(initialXmlString);
-		xmlRootElement = xmlDoc.getDocumentElement();
-		Assert.assertNull(xmlRootElement.getPrefix());
-
 		// With prefix
 		String namespacePrefix = "prefix";
 		initialXmlString = "<" + namespacePrefix + ":root xmlns:" + namespacePrefix + "=\"" + namespaceUri + "\"><"
-		        + namespacePrefix + ":book /></" + namespacePrefix + ":root>";
+				+ namespacePrefix + ":book /></" + namespacePrefix + ":root>";
 		xmlDoc = XmlUtils.createDocumentNS(initialXmlString);
 		xmlRootElement = xmlDoc.getDocumentElement();
 		Assert.assertEquals(xmlRootElement.getPrefix(), namespacePrefix);
+		Element xmlBookElement = XmlUtils.getChildBySimpleTagName(xmlRootElement, "book");
+		Assert.assertEquals(xmlBookElement.getPrefix(), namespacePrefix);
+
+		// Multi Namespaces
+		// Without prefix
+		String namespaceUri2 = "urn:jrtech2:test:xsd";
+		initialXmlString = "<root xmlns=\"" + namespaceUri + "\"><book xmlns=\"" + namespaceUri2 + "\"/></root>";
+		xmlDoc = XmlUtils.createDocumentNS(initialXmlString);
+		xmlRootElement = xmlDoc.getDocumentElement();
+		Assert.assertNull(xmlRootElement.getPrefix());
+		Assert.assertEquals(xmlRootElement.getNamespaceURI(), namespaceUri);
+		xmlBookElement = XmlUtils.getChildBySimpleTagName(xmlRootElement, "book");
+		Assert.assertNull(xmlBookElement.getPrefix());
+		Assert.assertEquals(xmlBookElement.getNamespaceURI(), namespaceUri2);
+
+		// With prefix
+		String namespacePrefix1 = "pre1";
+		String namespacePrefix2 = "pre2";
+		initialXmlString = "<" + namespacePrefix1 + ":root xmlns:" + namespacePrefix1 + "=\"" + namespaceUri + "\"><"
+				+ namespacePrefix2 + ":book xmlns:" + namespacePrefix2 + "=\"" + namespaceUri2 + "\" /></" + namespacePrefix1
+				+ ":root>";
+		xmlDoc = XmlUtils.createDocumentNS(initialXmlString);
+		xmlRootElement = xmlDoc.getDocumentElement();
+		xmlRootElement = xmlDoc.getDocumentElement();
+		Assert.assertEquals(xmlRootElement.getPrefix(), namespacePrefix1);
+		Assert.assertEquals(xmlRootElement.getNamespaceURI(), namespaceUri);
+		xmlBookElement = XmlUtils.getChildBySimpleTagName(xmlRootElement, "book");
+		Assert.assertEquals(xmlBookElement.getPrefix(), namespacePrefix2);
+		Assert.assertEquals(xmlBookElement.getNamespaceURI(), namespaceUri2);
 	}
-	
+
 	@Test
-    public void testLinearize() {
-	    String xmlBefore = "<FIToFICstmrCdtTrf>\n  <GrpHdr>\n      <MsgId>BBPA15061600349</MsgId>\n";
-	    String xmlAfter = "<FIToFICstmrCdtTrf><GrpHdr><MsgId>BBPA15061600349</MsgId>";
-	    String result = XmlUtils.linearize(xmlBefore);
-	    Assert.assertEquals(xmlAfter, result);
+	public void testLinearize() {
+		String xmlBefore = "<FIToFICstmrCdtTrf>\n  <GrpHdr>\n      <MsgId>JRTECH15061600349</MsgId>\n";
+		String xmlAfter = "<FIToFICstmrCdtTrf><GrpHdr><MsgId>JRTECH15061600349</MsgId>";
+		String result = XmlUtils.linearize(xmlBefore);
+		Assert.assertEquals(xmlAfter, result);
 	}
 }

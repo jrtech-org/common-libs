@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:ch:bbp:fms:meta:messaging:info"
-	xmlns:info="urn:ch:bbp:fms:meta:messaging:info" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:ch:acme:product:meta:messaging:info"
+	xmlns:info="urn:ch:acme:product:meta:messaging:info" elementFormDefault="qualified">
 
   <element name="fin-format" type="string"/>
   <element name="separator" type="string"/>

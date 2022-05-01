@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
    SWIFT-FIN MT 103 
-   version 2012 (igt-version SR2011_MODIFIED-BBP-ONLY-SR2010_January2011)
+   version 2012 (jrt-version SR2011_MODIFIED-BBP-ONLY-SR2010_January2011)
    transformed by trafo.xsl v.1.2.0 on March 8th, 2013 at 14:24:26
 
    Copyright © BBP AG, Baden, Switzerland. All rights reserved.
 
    Generated code. Please don't edit!
 -->
-<xs:schema xmlns:igt="urn:ch:bbp:fms:meta:messaging:igt"
-           xmlns:info="urn:ch:bbp:fms:meta:messaging:info"
+<xs:schema xmlns:jrt="urn:ch:acme:product:meta:messaging:jrt"
+           xmlns:info="urn:ch:acme:product:meta:messaging:info"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           targetNamespace="urn:ch:bbp:fms:meta:messaging:swift:fin:mt103"
-           xmlns="urn:ch:bbp:fms:meta:messaging:swift:fin:mt103"
+           targetNamespace="urn:ch:acme:product:meta:messaging:swift:fin:mt103"
+           xmlns="urn:ch:acme:product:meta:messaging:swift:fin:mt103"
            elementFormDefault="qualified">
    <xs:element name="documentMt103" type="Document"/>
    <xs:complexType name="Document">
